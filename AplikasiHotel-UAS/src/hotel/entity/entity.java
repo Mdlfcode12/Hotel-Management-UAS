@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hotel.koneksi;
-public class koneksi {
-    public static void main(String[] args) {
-        System.out.println("hello World");
-    } 
+package hotel.entity;
+
+/**
+ *
+ * @author MyBook Z Series
+ */
+public class entity {
+    
 }

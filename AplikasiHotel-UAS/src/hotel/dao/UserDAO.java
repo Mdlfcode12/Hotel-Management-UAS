@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hotel;
+package hotel.dao;
 
 /**
  *
  * @author MyBook Z Series
  */
-public class entiy {
+public class UserDAO {
     
 }
