@@ -70,16 +70,13 @@ public class FormLogin extends javax.swing.JFrame {
         btnLogin.setText("Sign In");
         btnLogin.setActionCommand("Jpanellbtn");
         btnLogin.setName("frame1"); // NOI18N
-        btnLogin.setRolloverEnabled(true);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
 
-        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
         txtPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel1.setBackground(new java.awt.Color(21, 70, 73));
