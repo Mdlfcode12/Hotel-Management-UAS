@@ -24,3 +24,10 @@ hs_err_pid*
 replay_pid*
 /AplikasiHotel-UAS/nbproject/private/
 /AplikasiHotel-UAS/build/
+
+# NetBeans specific
+nbproject/private/
+build/
+dist/
+nbbuild/
+.nb-gradle/
