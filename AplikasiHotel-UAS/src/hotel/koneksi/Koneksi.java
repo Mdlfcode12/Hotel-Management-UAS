@@ -22,4 +22,8 @@ public class Koneksi {
         }
         return mysqlconfig;
     }
+
+    public static Connection getKoneksi() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
