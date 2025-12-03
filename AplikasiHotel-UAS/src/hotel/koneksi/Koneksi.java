@@ -16,7 +16,7 @@ public class Koneksi {
             
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             mysqlconfig = DriverManager.getConnection(url, user, pass);
-            
+            System.out.println("monyet");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Koneksi Gagal! " + e.getMessage());
         }

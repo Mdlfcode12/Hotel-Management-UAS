@@ -10,7 +10,17 @@ package hotel.entity;
  * @author MyBook Z Series
  */
 public class entity {
-    public static void main(String[] args) {
-        System.out.println("");
-    }
+    private String username;
+	private String password;
+ 
+	// Constructor, Getter, Setter
+	public entity() {}
+	
+	public String getUsername() { return username; }
+	public void setUsername(String username) { this.username = username; }
+	
+	public String getPassword() { return password; }
+	public void setPassword(String password) { this.password = password;
+        }
+
 }
