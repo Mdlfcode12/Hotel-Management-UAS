@@ -10,5 +10,5 @@ package hotel.dao;
  * @author MyBook Z Series
  */
 public class UserDAO {
-    public private 
+    
 }
