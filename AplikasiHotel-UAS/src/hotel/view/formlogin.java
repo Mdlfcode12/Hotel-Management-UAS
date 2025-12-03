@@ -92,9 +92,6 @@ public class formlogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(21, 70, 73));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\MyBook Z Series\\Downloads\\HotelBooking-amico1.png")); // NOI18N
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MyBook Z Series\\Downloads\\Tanpa judul (1080 x 1080 piksel) (1).png")); // NOI18N
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,10 +176,12 @@ public class formlogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtPassword1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPassword1.setText("ptokitiw");
         txtPassword1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         txtUsername1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtUsername1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtUsername1.setText("cihuyyy");
         txtUsername1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         txtUsername1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,9 +223,6 @@ public class formlogin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(21, 70, 73));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\MyBook Z Series\\Downloads\\HotelBooking-amico1.png")); // NOI18N
-
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\MyBook Z Series\\Downloads\\Tanpa judul (1080 x 1080 piksel) (1).png")); // NOI18N
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
