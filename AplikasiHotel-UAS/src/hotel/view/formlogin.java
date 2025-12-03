@@ -239,7 +239,7 @@ public class formlogin extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\MyBook Z Series\\Downloads\\Tanpa judul (1080 x 1080 piksel) (1).png")); // NOI18N
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\MyBook Z Series\\Downloads\\HotelBooking-amico1.png")); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/HotelBooking-amico1.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

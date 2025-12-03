@@ -473,7 +473,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\MyBook Z Series\Downloads\HotelBooking-amico1.png"/>
+              <Image iconType="3" name="/images/HotelBooking-amico1.png"/>
             </Property>
           </Properties>
         </Component>
