@@ -10,5 +10,7 @@ package hotel.entity;
  * @author MyBook Z Series
  */
 public class entity {
-    
+    public static void main(String[] args) {
+        System.out.println("");
+    }
 }
