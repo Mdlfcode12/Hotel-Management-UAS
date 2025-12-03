@@ -16,10 +16,14 @@ public class Koneksi {
             
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             mysqlconfig = DriverManager.getConnection(url, user, pass);
-            
+            System.out.println("monyet");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Koneksi Gagal! " + e.getMessage());
         }
         return mysqlconfig;
+    }
+
+    public static Connection getKoneksi() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
