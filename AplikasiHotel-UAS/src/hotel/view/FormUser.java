@@ -7,7 +7,7 @@ package hotel.view;
 
 /**
  *
- * @author Feliza Puspa Dewi
+ * @author ACER
  */
 public class FormUser extends javax.swing.JFrame {
 
