@@ -11,8 +11,8 @@ import java.util.Date;
  */
 public class Reservasi {
     private String idReservasi;
-	private Date tglCheckIn;  // Tipe data Date
-	private Date tglCheckOut; // Tipe data Date
+	private Date tglCheckIn;  
+	private Date tglCheckOut; 
 	private String nikTamu;
 	private String kodeKamar;
 	private int totalBayar;
