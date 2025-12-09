@@ -66,6 +66,7 @@ public class MenuUtama extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton8.setBackground(new java.awt.Color(21, 70, 73));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/kamar.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -139,6 +140,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel9.setText("About");
 
         jButton9.setBackground(new java.awt.Color(21, 70, 73));
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cs.png"))); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -146,6 +148,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         jButton10.setBackground(new java.awt.Color(21, 70, 73));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profil.png"))); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -153,6 +156,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         jButton12.setBackground(new java.awt.Color(21, 70, 73));
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profil.png"))); // NOI18N
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -160,6 +164,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         jButton13.setBackground(new java.awt.Color(21, 70, 73));
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/checkin.png"))); // NOI18N
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
