@@ -9,6 +9,7 @@ import hotel.entity.User;
 import hotel.dao.UserDAO;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -18,9 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class FormUser extends javax.swing.JFrame {
 
     UserDAO dao = new UserDAO();
-    /**
-     * Creates new form FormUser
-     */
+    
     public FormUser() {
         initComponents();
         loadTable(); // Tampilkan data saat form dibuka
@@ -274,21 +273,7 @@ public class FormUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-        // Ambil baris yang diklik
-        int baris = tblUser.getSelectedRow();
-        if(baris != -1){
-            txtiduser.setText(tblUser.getValueAt(baris, 0).toString());
-            txtnamauser.setText(tblUser.getValueAt(baris, 1).toString());
-            txtUsername.setText(tblUser.getValueAt(baris, 2).toString());
-            // Password tidak kita ambil dari tabel karena tidak ditampilkan
-            // User harus input password baru jika mau edit, atau biarkan logika DAO menangani (opsional)
-            
-            // Atur tombol
-            btnSimpan.setEnabled(false);
-            btnEdit.setEnabled(true);
-            btnHapus.setEnabled(true);
-        }
-    }
+        
     }//GEN-LAST:event_tblUserMouseClicked
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
@@ -311,13 +296,13 @@ public class FormUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-    if(txtId.getText().isEmpty()) return;
+    if(txtiduser.getText().isEmpty()) return;
         
         User u = new User();
-        u.setIdUser(Integer.parseInt(txtId.getText()));
-        u.setNamaLengkap(txtNama.getText());
-        u.setUsername(txtUsername.getText());
-        u.setPassword(new String(txtPassword.getPassword()));
+        u.setid_user(Integer.parseInt(txtiduser.getText()));
+        u.setnama_lengkap(txtnamauser.getText());
+        u.setusername(txtusername.getText());
+        u.setPassword(new String(txtpassword.getPassword()));
         
         if(dao.ubahUser(u)){
             JOptionPane.showMessageDialog(this, "User Berhasil Diupdate");
@@ -334,8 +319,8 @@ public class FormUser extends javax.swing.JFrame {
         }
         
         User u = new User();
-        u.setNamaLengkap(txtnamauser.getText());
-        u.setUsername(txtusername.getText());
+        u.setnama_lengkap(txtnamauser.getText());
+        u.setusername(txtusername.getText());
         u.setPassword(new String(txtpassword.getPassword())); // Ambil text password
         
         if(dao.tambahUser(u)){
