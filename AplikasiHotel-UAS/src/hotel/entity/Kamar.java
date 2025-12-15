@@ -15,19 +15,38 @@ public class Kamar {
 	private int harga;
 	private String status;
  
-	public Kamar() {}
  
 	// Getter & Setter (Generate otomatis di NetBeans: Alt+Insert)
-	public String getKodeKamar() { return kodeKamar; }
-	public void setKodeKamar(String kodeKamar) { this.kodeKamar = kodeKamar; }
+	public String getKodeKamar() {
+            return kodeKamar; 
+        
+        }
+	public void setKodeKamar(String kodeKamar) { 
+            this.kodeKamar = kodeKamar;
+        }
  
-	public String getTipeKamar() { return tipeKamar; }
-	public void setTipeKamar(String tipeKamar) { this.tipeKamar = tipeKamar; }
+	public String getTipeKamar() { 
+            return tipeKamar; 
+        }
+        
+	public void setTipeKamar(String tipeKamar) {
+            this.tipeKamar = tipeKamar; 
+        }
  
-	public int getHarga() { return harga; }
-	public void setHarga(int harga) { this.harga = harga; }
+	public int getHarga() {
+            return harga; 
+        }
+        
+	public void setHarga(int harga) { 
+            this.harga = harga; 
+        }
  
-	public String getStatus() { return status; }
-	public void setStatus(String status) { this.status = status; }
+	public String getStatus() { 
+            return status; 
+        }
+        
+	public void setStatus(String status) { 
+            this.status = status; 
+        }
 
 }
