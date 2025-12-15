@@ -12,6 +12,7 @@ package hotel.view;
 public class formlogin extends javax.swing.JFrame {
     public formlogin() {
         initComponents();
+        
     }
 
     /**
@@ -37,9 +38,9 @@ public class formlogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(21, 70, 73));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/HotelBooking-amico1.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/HotelBooking-amico1.png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
