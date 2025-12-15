@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 public class formlogin extends javax.swing.JFrame {
     public formlogin() {
         initComponents();
-        
     }
 
     /**
