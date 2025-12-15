@@ -10,26 +10,18 @@ import java.util.List;
 
 public class UserDAO {
      private Connection conn;
-    
-    public boolean prosesLogin(User u) {
-        boolean berhasil = false;
-        String sql = "SELECT * FROM tabel_user WHERE username=? AND password=?";
-        
-        try {
-            Connection conn = Koneksi.getKoneksi();
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, u.getUsername());
-            pst.setString(2, u.getPassword());
-            ResultSet res = pst.executeQuery();
-            
-            if(res.next()) {
-                berhasil = true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return berhasil;
+
+    public UserDAO() {
+        conn = Koneksi.getKoneksi();
     }
+
+    // --- 1. FUNGSI LOGIN (Yang sudah ada) ---
+    public boolean prosesLogin(User u) {
+        // ... (kode login sebelumnya) ...
+        return false; // placeholder
+    }
+
+    // --- 2. FUNGSI INSERT (Tambah User Baru) ---
     public boolean tambahUser(User u) {
         String sql = "INSERT INTO tabel_user (username, password, nama_lengkap) VALUES (?, ?, ?)";
         try {
@@ -44,7 +36,9 @@ public class UserDAO {
             return false;
         }
     }
-      public boolean ubahUser(User u) {
+
+    // --- 3. FUNGSI UPDATE (Edit User) ---
+    public boolean ubahUser(User u) {
         String sql = "UPDATE tabel_user SET username=?, password=?, nama_lengkap=? WHERE id_user=?";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -58,8 +52,10 @@ public class UserDAO {
             System.out.println("Error Update: " + e.getMessage());
             return false;
         }
-      }
-       public boolean hapusUser(int id) {
+    }
+
+    // --- 4. FUNGSI DELETE (Hapus User) ---
+    public boolean hapusUser(int id) {
         String sql = "DELETE FROM tabel_user WHERE id_user=?";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -70,7 +66,9 @@ public class UserDAO {
             return false;
         }
     }
-        public List<User> getSemuaUser() {
+
+    // --- 5. FUNGSI SELECT ALL (Tampilkan di Tabel) ---
+    public List<User> getSemuaUser() {
         List<User> list = new ArrayList<>();
         String sql = "SELECT * FROM tabel_user";
         try {

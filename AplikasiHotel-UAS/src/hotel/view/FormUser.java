@@ -273,7 +273,20 @@ public class FormUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
-        
+        // Ambil baris yang diklik
+        int baris = tblUser.getSelectedRow();
+        if(baris != -1){
+            txtiduser.setText(tblUser.getValueAt(baris, 0).toString());
+            txtnamauser.setText(tblUser.getValueAt(baris, 1).toString());
+            txtusername.setText(tblUser.getValueAt(baris, 2).toString());
+            // Password tidak kita ambil dari tabel karena tidak ditampilkan
+            // User harus input password baru jika mau edit, atau biarkan logika DAO menangani (opsional)
+            
+            // Atur tombol
+            btnSimpan.setEnabled(false);
+            btnUbah.setEnabled(true);
+            btnHapus.setEnabled(true);
+        }
     }//GEN-LAST:event_tblUserMouseClicked
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
@@ -286,7 +299,7 @@ public class FormUser extends javax.swing.JFrame {
         
         int confirm = JOptionPane.showConfirmDialog(this, "Yakin hapus user ini?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
         if(confirm == JOptionPane.YES_OPTION){
-            int id = Integer.parseInt(txtId.getText());
+            int id = Integer.parseInt(txtiduser.getText());
             if(dao.hapusUser(id)){
                 JOptionPane.showMessageDialog(this, "User Dihapus");
                 loadTable();
@@ -302,7 +315,7 @@ public class FormUser extends javax.swing.JFrame {
         u.setid_user(Integer.parseInt(txtiduser.getText()));
         u.setnama_lengkap(txtnamauser.getText());
         u.setusername(txtusername.getText());
-        u.setPassword(new String(txtpassword.getPassword()));
+        u.setPassword(new String(txtpassword.getText()));
         
         if(dao.ubahUser(u)){
             JOptionPane.showMessageDialog(this, "User Berhasil Diupdate");
@@ -321,7 +334,7 @@ public class FormUser extends javax.swing.JFrame {
         User u = new User();
         u.setnama_lengkap(txtnamauser.getText());
         u.setusername(txtusername.getText());
-        u.setPassword(new String(txtpassword.getPassword())); // Ambil text password
+        u.setPassword(new String(txtpassword.getText())); // Ambil text password
         
         if(dao.tambahUser(u)){
             JOptionPane.showMessageDialog(this, "User Berhasil Ditambahkan");
