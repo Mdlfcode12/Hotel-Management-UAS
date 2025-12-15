@@ -135,9 +135,7 @@
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-<<<<<<< HEAD
-              <EmptySpace max="32767" attributes="0"/>
-=======
+
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
 >>>>>>> da28ed760f3f6ea88ab9ad11a8bbdd592286433d
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -152,19 +150,7 @@
           <Color blue="49" green="46" red="15" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD
-          <Image iconType="3" name="/images/checkin.png"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton11">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="49" green="46" red="15" type="rgb"/>
-=======
+
           <Image iconType="3" name="/images/kamar.png"/>
 >>>>>>> da28ed760f3f6ea88ab9ad11a8bbdd592286433d
         </Property>
