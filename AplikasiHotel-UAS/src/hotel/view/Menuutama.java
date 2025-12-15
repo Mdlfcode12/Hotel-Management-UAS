@@ -9,12 +9,12 @@ package hotel.view;
  *
  * @author MyBook Z Series
  */
-public class MenuUtama extends javax.swing.JFrame {
+public class Menuutama extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuUtama
      */
-    public MenuUtama() {
+    public Menuutama() {
         initComponents();
     }
 
@@ -274,7 +274,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btnManajemenKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManajemenKamarActionPerformed
         // Buat objek formreservasi baru
-        FormReservasi formreservasi = new FormReservasi();
+        formReservasi formreservasi = new formReservasi();
 
         // Tampilkan form
         formreservasi.setVisible(true);
