@@ -17,8 +17,22 @@ public class UserDAO {
 
     // --- 1. FUNGSI LOGIN (Yang sudah ada) ---
     public boolean prosesLogin(User u) {
-        // ... (kode login sebelumnya) ...
-        return false; // placeholder
+        String sql = "SELECT * FROM tabel_user WHERE username=? AND password=?";
+    
+    try {
+        Connection conn = Koneksi.getKoneksi();
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setString(1, u.getUsername());
+        pst.setString(2, u.getPassword()); // Pastikan pakai .getText() di FormLogin nanti
+        ResultSet res = pst.executeQuery();
+        
+        if(res.next()) {
+            berhasil = true; // Sekarang ini tidak akan merah lagi
+            }
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+        return berhasil; // <--- PERBAIKAN 2: Kembalikan nilai variabelnya, bukan langsung false
     }
 
     // --- 2. FUNGSI INSERT (Tambah User Baru) ---
