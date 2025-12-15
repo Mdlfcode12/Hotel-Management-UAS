@@ -13,7 +13,7 @@ public class Koneksi {
             String user = "root"; // User XAMPP
             String pass = ""; // Password XAMPP
             
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             mysqlconfig = DriverManager.getConnection(url, user, pass);
             
         } catch (SQLException e) {

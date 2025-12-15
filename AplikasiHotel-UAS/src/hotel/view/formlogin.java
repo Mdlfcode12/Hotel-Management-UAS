@@ -5,8 +5,8 @@
  */
 package hotel.view;
 
-import hotel.entity.User;
 import hotel.dao.UserDAO;
+import hotel.entity.User; 
 import javax.swing.JOptionPane;
 /**
  *
@@ -31,10 +31,10 @@ public class formlogin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,15 +79,6 @@ public class formlogin extends javax.swing.JFrame {
         jLabel3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel3.setPreferredSize(new java.awt.Dimension(50, 25));
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtPassword.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(21, 70, 73));
         jLabel2.setText("Password");
@@ -123,11 +114,11 @@ public class formlogin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtUsername)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPassword))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
@@ -141,14 +132,14 @@ public class formlogin extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(155, 155, 155))
         );
@@ -156,32 +147,52 @@ public class formlogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // 1. Bungkus data input ke Entity User
-        User userLogin = new User();
-        userLogin.setusername(txtUsername.getText());
-        userLogin.setPassword(txtPassword.getText());
-
-        // 2. Panggil DAO untuk mengecek
-        UserDAO dao = new UserDAO();
-        boolean status = dao.prosesLogin(userLogin);
-
-        // 3. Validasi
-        if(status == true) {
-            JOptionPane.showMessageDialog(this, "Login Berhasil!");
-            new Menuutama().setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Username/Password Salah!");
-        }
+        // 1. Ambil data dari form
+    String user = txtUsername.getText();
+    
+    // PENTING: Jika txtPassword Anda adalah PasswordField, gunakan kode ini:
+    String pass = new String(txtPassword.getPassword());
+    // TAPI: Jika txtPassword Anda adalah TextField biasa, gunakan: txtPassword.getText();
+    
+    // 2. Validasi (Cek kosong)
+    if (user.isEmpty() || pass.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Username dan Password tidak boleh kosong!");
+        return;
+    }
+    
+    // 3. Masukkan data ke Entity User (Bungkus data)
+    User u = new User();
+    u.setusername(user);
+    u.setPassword(pass);
+    
+    // 4. Panggil DAO untuk mengecek
+    UserDAO dao = new UserDAO();
+    boolean status = dao.prosesLogin(u); // Fungsi yang baru saja Anda perbaiki
+    
+    // 5. Cek Hasilnya
+    if (status == true) {
+        // --- JIKA LOGIN BERHASIL ---
+        JOptionPane.showMessageDialog(this, "Login Berhasil!");
+        
+        // Buka Menu Utama
+        new hotel.view.Menuutama().setVisible(true);
+        
+        // Tutup Form Login
+        this.dispose();
+        
+    } else {
+        // --- JIKA LOGIN GAGAL ---
+        JOptionPane.showMessageDialog(this, "Username atau Password Salah!", "Gagal", JOptionPane.ERROR_MESSAGE);
+        
+        // Kosongkan password biar user ngetik ulang
+        txtPassword.setText("");
+        txtPassword.requestFocus();
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -227,7 +238,7 @@ public class formlogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
