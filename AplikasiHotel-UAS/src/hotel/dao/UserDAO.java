@@ -15,7 +15,7 @@ public class UserDAO {
         try {
             Connection conn = Koneksi.getKoneksi();
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, u.getUsername());
+            pst.setString(1, u.getusername());
             pst.setString(2, u.getPassword());
             ResultSet res = pst.executeQuery();
             
