@@ -267,15 +267,33 @@ public class Menuutama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnManajemenKamarActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
+        // Buat objek formreservasi baru
+            formKamar Fk = new formKamar();
+            // Tampilkan form
+            Fk.setVisible(true);
+            // Atur di tengah
+            Fk.setLocationRelativeTo(null);
+            Fk.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+
+            FormTamu FT = new FormTamu();
+            // Tampilkan form
+            FT.setVisible(true);
+            // Atur di tengah
+            FT.setLocationRelativeTo(null);
+            FT.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+            // Buat objek formreservasi baru
+            FormUser FU = new FormUser();
+            // Tampilkan form
+            FU.setVisible(true);
+            // Atur di tengah
+            FU.setLocationRelativeTo(null);
+            FU.setDefaultCloseOperation(DISPOSE_ON_CLOSE);   
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -283,11 +301,23 @@ public class Menuutama extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        // Buat objek formreservasi baru
+            formabout Fa = new formabout();
+            // Tampilkan form
+            Fa.setVisible(true);
+            // Atur di tengah
+            Fa.setLocationRelativeTo(null);
+            Fa.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+        // Buat objek formreservasi baru
+        formReservasi FR = new formReservasi();
+        // Tampilkan form
+        FR.setVisible(true);
+        // Atur di tengah
+        FR.setLocationRelativeTo(null);
+        FR.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
     }//GEN-LAST:event_jButton13ActionPerformed
 
     /**

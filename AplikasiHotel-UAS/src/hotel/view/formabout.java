@@ -49,7 +49,7 @@ public class formabout extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(21, 70, 73));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,7 +64,7 @@ public class formabout extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

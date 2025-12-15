@@ -60,7 +60,7 @@ public class formReservasi extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(21, 70, 73));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
