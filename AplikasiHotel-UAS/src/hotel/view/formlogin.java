@@ -5,17 +5,17 @@
  */
 package hotel.view;
 
+import hotel.entity.User;
+import hotel.dao.UserDAO;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ACER
  */
 public class formlogin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form formlogin
-     */
     public formlogin() {
         initComponents();
+        
     }
 
     /**
@@ -41,9 +41,9 @@ public class formlogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(21, 70, 73));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/HotelBooking-amico1.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/HotelBooking-amico1.png"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -108,6 +108,11 @@ public class formlogin extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Sign In");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,6 +165,26 @@ public class formlogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsername1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // 1. Bungkus data input ke Entity User
+        User userLogin = new User();
+        userLogin.setUsername(txtUser.getText());
+        userLogin.setPassword(txtPass.getText());
+
+        // 2. Panggil DAO untuk mengecek
+        UserDAO dao = new UserDAO();
+        boolean status = dao.prosesLogin(userLogin);
+
+        // 3. Validasi
+        if(status == true) {
+            JOptionPane.showMessageDialog(this, "Login Berhasil!");
+            new Menuutama().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Username/Password Salah!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,7 +214,7 @@ public class formlogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+                public void run() {
                 new formlogin().setVisible(true);
             }
         });
