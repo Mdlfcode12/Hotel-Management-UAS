@@ -5,8 +5,11 @@ import hotel.koneksi.Koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
+     private Connection conn;
     
     public boolean prosesLogin(User u) {
         boolean berhasil = false;
@@ -33,7 +36,7 @@ public class UserDAO {
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, u.getUsername());
             pst.setString(2, u.getPassword());
-            pst.setString(3, u.getNamaLengkap()); // Pastikan di Entity User sudah ada Getter/Setter namaLengkap
+            pst.setString(3, u.getnama_lengkap()); // Pastikan di Entity User sudah ada Getter/Setter namaLengkap
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -47,8 +50,8 @@ public class UserDAO {
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, u.getUsername());
             pst.setString(2, u.getPassword());
-            pst.setString(3, u.getNamaLengkap());
-            pst.setInt(4, u.getIdUser()); // Butuh ID untuk where clause
+            pst.setString(3, u.getnama_lengkap());
+            pst.setInt(4, u.getid_user()); // Butuh ID untuk where clause
             pst.execute();
             return true;
         } catch (Exception e) {
@@ -75,10 +78,10 @@ public class UserDAO {
             ResultSet res = stm.executeQuery(sql);
             while(res.next()) {
                 User u = new User();
-                u.setIdUser(res.getInt("id_user"));
-                u.setUsername(res.getString("username"));
+                u.setid_user(res.getInt("id_user"));
+                u.setusername(res.getString("username"));
                 u.setPassword(res.getString("password"));
-                u.setNamaLengkap(res.getString("nama_lengkap"));
+                u.setnama_lengkap(res.getString("nama_lengkap"));
                 list.add(u);
             }
         } catch (Exception e) {
