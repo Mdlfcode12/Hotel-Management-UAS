@@ -5,6 +5,12 @@
  */
 package hotel.view;
 
+import hotel.koneksi.Koneksi;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ACER
@@ -157,6 +163,7 @@ public class formabout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        String idTamuDipilih = null;
         // 1. Validasi: Pastikan ada ID yang dipilih
         if (idTamuDipilih == null) {
             JOptionPane.showMessageDialog(this, "Silakan pilih data tamu dari tabel terlebih dahulu.", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -260,4 +267,12 @@ public class formabout extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    private void loadDataTamu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void clearForm() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
