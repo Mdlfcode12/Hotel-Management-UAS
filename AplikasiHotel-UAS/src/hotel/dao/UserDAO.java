@@ -17,7 +17,8 @@ public class UserDAO {
 
     // --- 1. FUNGSI LOGIN (Yang sudah ada) ---
     public boolean prosesLogin(User u) {
-        String sql = "SELECT * FROM tabel_user WHERE username=? AND password=?";
+        boolean berhasil = false; // <--- PERBAIKAN 1: Buat variabelnya dulu di sini!
+    String sql = "SELECT * FROM tabel_user WHERE username=? AND password=?";
     
     try {
         Connection conn = Koneksi.getKoneksi();
@@ -28,11 +29,11 @@ public class UserDAO {
         
         if(res.next()) {
             berhasil = true; // Sekarang ini tidak akan merah lagi
-            }
-        } catch (Exception e) {
-        e.printStackTrace();
         }
-        return berhasil; // <--- PERBAIKAN 2: Kembalikan nilai variabelnya, bukan langsung false
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return berhasil; // <--- PERBAIKAN 2: Kembalikan nilai variabelnya, bukan langsung false
     }
 
     // --- 2. FUNGSI INSERT (Tambah User Baru) ---
