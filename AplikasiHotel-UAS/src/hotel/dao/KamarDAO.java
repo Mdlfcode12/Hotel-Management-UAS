@@ -32,6 +32,22 @@ public class KamarDAO {
             return false;
         }
     }
+    // method Ubah
+    public boolean ubahKamar(Kamar k) {
+        String sql = "UPDATE tabel_kamar SET tipe_kamar=?, harga=?, status=? WHERE kode_kamar=?";
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, k.getTipeKamar());
+            pst.setInt(2, k.getHarga());
+            pst.setString(3, k.getStatus());
+            pst.setString(4, k.getKodeKamar()); // Butuh ID untuk where clause
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error Update: " + e.getMessage());
+            return false;
+        }
+    }
 
     // Method DELETE
     public boolean hapusKamar(String kode) {
