@@ -25,7 +25,7 @@ public class formKamar extends javax.swing.JFrame {
      */
     public formKamar() {
         initComponents();
-        updateTabel();
+        loadTabel();
         resetForm();
     }
     
@@ -39,7 +39,7 @@ public class formKamar extends javax.swing.JFrame {
         btnHapus.setEnabled(false);
     }
      // Fungsi menampilkan data List dari DAO ke JTable
-    private void updateTabel() {
+    private void loadTabel() {
         DefaultTableModel model = new DefaultTableModel();
         //model.setRowCount(0); // Reset tabel kosong
         model.addColumn("Kode Kamar");
@@ -154,6 +154,11 @@ public class formKamar extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablekamar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablekamarMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablekamar);
 
         btnSimpan.setBackground(new java.awt.Color(21, 70, 73));
@@ -277,7 +282,7 @@ public class formKamar extends javax.swing.JFrame {
         // 2. Panggil DAO simpan
         if(dao.tambahKamar(k)) {
             JOptionPane.showMessageDialog(this, "Data Tersimpan!");
-            updateTabel(); // Refresh tabel
+            loadTabel(); // Refresh tabel
             // clearForm(); // Buat method sendiri untuk kosongkan textfield
         } else {
             JOptionPane.showMessageDialog(this, "Gagal Simpan");
@@ -288,7 +293,7 @@ public class formKamar extends javax.swing.JFrame {
         String kode = txtKode.getText();
         if(dao.hapusKamar(kode)) {
             JOptionPane.showMessageDialog(this, "Data Terhapus!");
-            updateTabel();
+            loadTabel();
         }
     }//GEN-LAST:event_btnHapusActionPerformed
 
@@ -299,11 +304,11 @@ public class formKamar extends javax.swing.JFrame {
         k.setKodeKamar(txtKode.getText());
         k.setTipeKamar(txtTipe.getText());
         k.setHarga(Integer.parseInt(txtHarga.getText()));
-        k.setStatus(cbStatus.getItemAt(WIDTH));
+        k.setStatus((String) cbStatus.getSelectedItem());
         
         if(dao.ubahKamar(k)){
             JOptionPane.showMessageDialog(this, "User Berhasil Diupdate");
-            updateTabel();
+            loadTabel();
             resetForm();
         }        
     }//GEN-LAST:event_btnEditActionPerformed
@@ -311,6 +316,24 @@ public class formKamar extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         resetForm();
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void tablekamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablekamarMouseClicked
+        // Ambil baris yang diklik
+        int baris = tablekamar.getSelectedRow();
+        if(baris != -1){
+            txtKode.setText(tablekamar.getValueAt(baris, 0).toString());
+            txtTipe.setText(tablekamar.getValueAt(baris, 1).toString());
+            txtHarga.setText(tablekamar.getValueAt(baris, 2).toString());
+            cbStatus.setSelectedItem(tablekamar.getValueAt(baris, 3).toString());
+            // Password tidak kita ambil dari tabel karena tidak ditampilkan
+            // User harus input password baru jika mau edit, atau biarkan logika DAO menangani (opsional)
+            
+            // Atur tombol
+            btnSimpan.setEnabled(false);
+            btnEdit.setEnabled(true);
+            btnHapus.setEnabled(true);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_tablekamarMouseClicked
 
     /**
      * @param args the command line arguments
