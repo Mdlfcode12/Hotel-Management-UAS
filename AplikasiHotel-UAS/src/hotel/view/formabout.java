@@ -42,7 +42,6 @@ public class formabout extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        btnHapus = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,16 +89,6 @@ public class formabout extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(21, 70, 71));
         jLabel10.setText("hotel, termasuk input kamar, tamu, transaksi, dan laporan cetak.");
 
-        btnHapus.setBackground(new java.awt.Color(255, 0, 0));
-        btnHapus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
-        btnHapus.setText("Close");
-        btnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusActionPerformed(evt);
-            }
-        });
-
         jPanel2.setBackground(new java.awt.Color(21, 70, 71));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -122,17 +111,13 @@ public class formabout extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(177, 177, 177)))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
                 .addGap(118, 118, 118))
         );
         layout.setVerticalGroup(
@@ -153,71 +138,12 @@ public class formabout extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addGap(34, 34, 34)
-                .addComponent(btnHapus)
-                .addGap(53, 53, 53)
+                .addGap(112, 112, 112)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        String idTamuDipilih = null;
-        // 1. Validasi: Pastikan ada ID yang dipilih
-        if (idTamuDipilih == null) {
-            JOptionPane.showMessageDialog(this, "Silakan pilih data tamu dari tabel terlebih dahulu.", "Info", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-
-        // 2. Konfirmasi penghapusan
-        int pilihan = JOptionPane.showConfirmDialog(this,
-            "Apakah Anda yakin ingin menghapus data tamu ini?",
-            "Konfirmasi Hapus",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.WARNING_MESSAGE);
-
-        if (pilihan != JOptionPane.YES_OPTION) {
-            return; // Batalkan
-        }
-
-        // 3. Proses Hapus dari database
-        Connection koneksi = null;
-        PreparedStatement pstmt = null;
-
-        try {
-            koneksi = Koneksi.getKoneksi();
-
-            String sql = "DELETE FROM tabel_tamu WHERE id_tamu = ?";
-
-            pstmt = koneksi.prepareStatement(sql);
-            pstmt.setInt(1, Integer.parseInt(idTamuDipilih));
-
-            int hasil = pstmt.executeUpdate();
-
-            if (hasil > 0) {
-                JOptionPane.showMessageDialog(this, "Data tamu berhasil dihapus.");
-                loadDataTamu();
-                clearForm();
-            } else {
-                JOptionPane.showMessageDialog(this, "Data tamu gagal dihapus.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } catch (SQLException e) {
-            // Tangani error relasi (jika tamu sudah ada di tabel reservasi)
-            if (e.getSQLState().equals("23000")) {
-                JOptionPane.showMessageDialog(this, "Data tamu tidak bisa dihapus karena sudah digunakan di tabel reservasi.", "Error Relasi", JOptionPane.ERROR_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Error SQL: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } finally {
-            try {
-                if (pstmt != null) pstmt.close();
-            } catch (SQLException e) {
-                System.out.println("Error saat menutup PreparedStatement: " + e.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btnHapusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,7 +181,6 @@ public class formabout extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHapus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;

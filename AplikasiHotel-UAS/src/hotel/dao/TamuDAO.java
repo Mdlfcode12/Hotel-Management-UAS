@@ -92,4 +92,21 @@ public class TamuDAO {
         }
         return list;
     }
+    //ambil data tamu untuk di reservasi
+    public java.util.List<String> getDaftarNamaTamu() {
+        java.util.List<String> listNama = new java.util.ArrayList<>();
+        // Kita urutkan nama dari A-Z agar mudah dicari
+        String sql = "SELECT nama_tamu FROM tabel_tamu ORDER BY nama_tamu ASC";
+        
+        try {
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery(sql);
+            while(res.next()) {
+                listNama.add(res.getString("nama_tamu"));
+            }
+        } catch (Exception e) {
+            System.out.println("Error Ambil Nama: " + e.getMessage());
+        }
+        return listNama;
+    }
 }

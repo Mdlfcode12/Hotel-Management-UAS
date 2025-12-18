@@ -5,6 +5,7 @@ import hotel.koneksi.Koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,5 +100,17 @@ public class KamarDAO {
     return harga;
 }
 
-
+public List<String> getKamarKosong() {
+    List<String> list = new ArrayList<>();
+    // Hanya ambil kamar yang statusnya 'Kosong' / 'Available'
+    String sql = "SELECT kode_kamar FROM tabel_kamar WHERE status='Tersedia'";
+    try {
+        Statement st = conn.createStatement();
+        ResultSet res = st.executeQuery(sql);
+        while(res.next()) {
+            list.add(res.getString("kode_kamar"));
+        }
+    } catch (Exception e) {}
+    return list;
+}
 }
