@@ -294,6 +294,7 @@ public class formKamar extends javax.swing.JFrame {
         if(dao.hapusKamar(kode)) {
             JOptionPane.showMessageDialog(this, "Data Terhapus!");
             loadTabel();
+            resetForm();
         }
     }//GEN-LAST:event_btnHapusActionPerformed
 
