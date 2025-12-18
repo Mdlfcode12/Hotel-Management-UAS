@@ -2,58 +2,72 @@ package hotel.dao;
 
 import hotel.entity.Reservasi;
 import hotel.koneksi.Koneksi;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.util.concurrent.TimeUnit; // Untuk hitung selisih hari
 
 public class ReservasiDAO {
-    
     private Connection conn;
 
     public ReservasiDAO() {
         conn = Koneksi.getKoneksi();
     }
 
-    // --- LOGIKA BISNIS: Hitung Total Harga ---
-    public int hitungTotalBayar(Reservasi r) {
-        long selisihMS = Math.abs(r.getTglCheckOut().getTime() - r.getTglCheckIn().getTime());
-        long selisihHari = TimeUnit.DAYS.convert(selisihMS, TimeUnit.MILLISECONDS);
-        
-        // Aturan: Jika checkin & checkout hari sama, dihitung 1 hari
-        if (selisihHari == 0) selisihHari = 1;
-        
-        // Total = Lama Inap * Harga Kamar
-        return (int) (selisihHari * r.getHargaPerMalam());
+    // --- FITUR 1: AMBIL HARGA KAMAR (Untuk Hitung Total) ---
+    public int getHargaKamar(String kodeKamar) {
+        int harga = 0;
+        try {
+            String sql = "SELECT harga FROM tabel_kamar WHERE kode_kamar=?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, kodeKamar);
+            ResultSet res = pst.executeQuery();
+            if(res.next()) {
+                harga = res.getInt("harga");
+            }
+        } catch (Exception e) {
+            System.out.println("Error Get Harga: " + e.getMessage());
+        }
+        return harga;
     }
 
-    // --- LOGIKA DATABASE: Simpan Reservasi ---
+    // --- FITUR 2: SIMPAN RESERVASI ---
     public boolean simpanReservasi(Reservasi r) {
-        String sql = "INSERT INTO tabel_reservasi VALUES (?, ?, ?, ?, ?, ?, ?)";
+        // Query Insert Data
+        String sql = "INSERT INTO tabel_reservasi (id_reservasi, nama_tamu, kode_kamar, tgl_checkin, tgl_checkout, total_bayar, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, r.getIdReservasi());
+            pst.setString(2, r.getNamaTamu());
+            pst.setString(3, r.getKodeKamar());
             
-            // PENTING: Konversi java.util.Date ke java.sql.Date
-            pst.setDate(2, new java.sql.Date(r.getTglCheckIn().getTime()));
-            pst.setDate(3, new java.sql.Date(r.getTglCheckOut().getTime()));
+            // Konversi Date Java ke Date SQL
+            pst.setDate(4, new java.sql.Date(r.getTglCheckIn().getTime()));
+            pst.setDate(5, new java.sql.Date(r.getTglCheckOut().getTime()));
             
-            pst.setString(4, r.getNikTamu());
-            pst.setString(5, r.getKodeKamar());
             pst.setInt(6, r.getTotalBayar());
-            pst.setInt(7, r.getIdUser()); // ID User admin yg login
+            pst.setString(7, "Booking");
             
             pst.execute();
             
-            // Opsional: Update status kamar jadi 'Terisi'
+            // --- PENTING: UPDATE STATUS KAMAR JADI 'TERISI' ---
             String sqlUpdate = "UPDATE tabel_kamar SET status='Terisi' WHERE kode_kamar=?";
-            PreparedStatement pst2 = conn.prepareStatement(sqlUpdate);
-            pst2.setString(1, r.getKodeKamar());
-            pst2.execute();
+            PreparedStatement pstKamar = conn.prepareStatement(sqlUpdate);
+            pstKamar.setString(1, r.getKodeKamar());
+            pstKamar.execute();
             
             return true;
         } catch (Exception e) {
             System.out.println("Error Simpan Reservasi: " + e.getMessage());
             return false;
         }
+    }
+    
+    // --- FITUR 3: HITUNG SELISIH HARI ---
+    public long hitungLamaInap(java.util.Date checkIn, java.util.Date checkOut) {
+        long selisihWaktu = Math.abs(checkOut.getTime() - checkIn.getTime());
+        long selisihHari = TimeUnit.DAYS.convert(selisihWaktu, TimeUnit.MILLISECONDS);
+        // Jika checkin & checkout hari sama, dihitung 1 hari
+        if (selisihHari == 0) selisihHari = 1; 
+        return selisihHari;
     }
 }

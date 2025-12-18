@@ -5,9 +5,9 @@
  */
 package hotel.view;
 
-import hotel.entity.Reservasi;
 import hotel.dao.ReservasiDAO;
-import hotel.dao.KamarDAO; // Untuk ambil harga
+import hotel.entity.Reservasi;
+import java.util.Date;
 import javax.swing.JOptionPane;
 /**
  *
@@ -16,8 +16,7 @@ import javax.swing.JOptionPane;
 public class formReservasi extends javax.swing.JFrame {
     
     // Global variable DAO
-    ReservasiDAO daoReservasi = new ReservasiDAO();
-    KamarDAO daoKamar = new KamarDAO();
+    ReservasiDAO dao = new ReservasiDAO();
     /**
      * Creates new form formReservasi
      */
@@ -49,9 +48,9 @@ public class formReservasi extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
         txtReservasi = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnHitung = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtTotalHarga = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -125,24 +124,24 @@ public class formReservasi extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(21, 70, 73));
         jLabel5.setText("Kode Kamar");
 
-        jButton1.setBackground(new java.awt.Color(21, 70, 73));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Simpan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan.setBackground(new java.awt.Color(21, 70, 73));
+        btnSimpan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSimpan.setForeground(new java.awt.Color(255, 255, 255));
+        btnSimpan.setText("Simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSimpanActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Hitung");
-        jButton2.setToolTipText("");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnHitung.setBackground(new java.awt.Color(255, 102, 0));
+        btnHitung.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnHitung.setForeground(new java.awt.Color(255, 255, 255));
+        btnHitung.setText("Hitung");
+        btnHitung.setToolTipText("");
+        btnHitung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnHitungActionPerformed(evt);
             }
         });
 
@@ -174,9 +173,9 @@ public class formReservasi extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -201,7 +200,6 @@ public class formReservasi extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -233,9 +231,9 @@ public class formReservasi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -247,61 +245,63 @@ public class formReservasi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // Validasi input
-        if(dcCheckIn.getDate() == null || dcCheckOut.getDate() == null || txtKodeKamar.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Tanggal dan Kode Kamar wajib diisi!");
+    private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
+    // 1. Validasi Input
+        if(txtKodeKamar.getText().isEmpty() || dcCheckIn.getDate() == null || dcCheckOut.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Lengkapi Kamar dan Tanggal dulu!");
             return;
         }
 
-        // Ambil Harga Kamar dari Database via DAO
-        int hargaKamar = daoKamar.getHargaKamar(txtKodeKamar.getText());
+        // 2. Ambil Harga Kamar dari Database
+        String kode = txtKodeKamar.getText();
+        int hargaPerMalam = dao.getHargaKamar(kode);
         
-        if(hargaKamar == 0) {
-            JOptionPane.showMessageDialog(this, "Kode Kamar Tidak Ditemukan!");
+        if(hargaPerMalam == 0) {
+            JOptionPane.showMessageDialog(this, "Kode Kamar Salah / Tidak Ditemukan!");
             return;
         }
 
-        // Siapkan Entity
-        Reservasi r = new Reservasi();
-        r.setTglCheckIn(dcCheckIn.getDate());
-        r.setTglCheckOut(dcCheckOut.getDate());
-        r.setHargaPerMalam(hargaKamar);
+        // 3. Hitung Lama Menginap
+        Date in = dcCheckIn.getDate();
+        Date out = dcCheckOut.getDate();
+        long lama = dao.hitungLamaInap(in, out);
 
-        // Panggil Logic Hitung di DAO
-        int total = daoReservasi.hitungTotalBayar(r);
+        // 4. Total = Lama * Harga
+        long total = lama * hargaPerMalam;
         
-        // Tampilkan ke TextField
-        txtTotalHarga.setText(String.valueOf(total));
-    }//GEN-LAST:event_jButton2ActionPerformed
+        // 5. Tampilkan
+        txtTotal.setText(String.valueOf(total));
+        
+        // Info ke user
+        JOptionPane.showMessageDialog(this, "Lama Inap: " + lama + " Hari\nHarga Kamar: " + hargaPerMalam + "\nTotal: " + total);
+    }//GEN-LAST:event_btnHitungActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         // Siapkan Entity dengan data lengkap
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // Validasi apakah sudah dihitung?
+        if(txtTotal.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Klik tombol HITUNG dulu!");
+            return;
+        }
+
         Reservasi r = new Reservasi();
-        r.setIdReservasi(txtReservasi.getText());
-        r.setTglCheckIn(dcCheckIn.getDate());
-        r.setTglCheckOut(dcCheckOut.getDate());
-        r.setNikTamu(txtNamatamu.getText());
+        r.setIdReservasi(txtId.getText());
+        r.setNikTamu(txtNik.getText());
         r.setKodeKamar(txtKodeKamar.getText());
+        r.setTglCheckIn(dcCheckIn.getDate());
+        r.setTglCheckOut(dcCheckOut.getDate());
         
-        // Pastikan total sudah terhitung
-        if(txtTotalHarga.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Silakan klik tombol Hitung dulu!");
-            return;
-        }
-        r.setTotalBayar(Integer.parseInt(txtTotalHarga.getText()));
-        
-        // Set ID User (Default 1 dulu, nanti bisa diambil dari Session Login)
-        r.setIdUser(1); 
+        // Konversi String total ke Integer
+        r.setTotalBayar(Integer.parseInt(txtTotal.getText()));
 
-        // Eksekusi Simpan
-        if(daoReservasi.simpanReservasi(r)) {
-            JOptionPane.showMessageDialog(this, "Transaksi Berhasil & Status Kamar Terupdate!");
-            // Reset form jika perlu
+        if(dao.simpanReservasi(r)) {
+            JOptionPane.showMessageDialog(this, "Reservasi Berhasil & Status Kamar Terupdate!");
+            // Reset Form disini...
+            txtId.setText("RES-" + System.currentTimeMillis());
+            txtTotal.setText("");
         } else {
-            JOptionPane.showMessageDialog(this, "Transaksi Gagal!");
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+            JOptionPane.showMessageDialog(this, "Gagal Simpan Reservasi");
+        }
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,10 +339,10 @@ public class formReservasi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHitung;
+    private javax.swing.JButton btnSimpan;
     private com.toedter.calendar.JDateChooser dcCheckIn;
     private com.toedter.calendar.JDateChooser dcCheckOut;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
