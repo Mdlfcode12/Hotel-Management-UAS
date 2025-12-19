@@ -9,12 +9,12 @@ package hotel.view;
  *
  * @author MyBook Z Series
  */
-public class Menuutama extends javax.swing.JFrame {
+public class MenuUtama extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuUtama
      */
-    public Menuutama() {
+    public MenuUtama() {
         initComponents();
     }
 
@@ -64,9 +64,10 @@ public class Menuutama extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jButton8.setBackground(new java.awt.Color(21, 70, 73));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/kamar.png"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/kamar.png"))); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -80,7 +81,7 @@ public class Menuutama extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(21, 70, 73));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tanpa judul (1080 x 1080 piksel) (1).png"))); // NOI18N
         jLabel17.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -140,7 +141,7 @@ public class Menuutama extends javax.swing.JFrame {
         jLabel9.setText("About");
 
         jButton9.setBackground(new java.awt.Color(21, 70, 73));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/cs.png"))); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cs.png"))); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -148,7 +149,7 @@ public class Menuutama extends javax.swing.JFrame {
         });
 
         jButton10.setBackground(new java.awt.Color(21, 70, 73));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/profil.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cs.png"))); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -156,7 +157,7 @@ public class Menuutama extends javax.swing.JFrame {
         });
 
         jButton12.setBackground(new java.awt.Color(21, 70, 73));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/profil.png"))); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profil.png"))); // NOI18N
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -164,7 +165,7 @@ public class Menuutama extends javax.swing.JFrame {
         });
 
         jButton13.setBackground(new java.awt.Color(21, 70, 73));
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/images/cs.png"))); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/checkin.png"))); // NOI18N
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -190,9 +191,9 @@ public class Menuutama extends javax.swing.JFrame {
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145)
+                .addGap(138, 138, 138)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
+                .addGap(117, 117, 117))
             .addGroup(layout.createSequentialGroup()
                 .addGap(353, 353, 353)
                 .addComponent(jLabel8)
@@ -219,7 +220,7 @@ public class Menuutama extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -235,7 +236,7 @@ public class Menuutama extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel6)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -252,7 +253,7 @@ public class Menuutama extends javax.swing.JFrame {
 
     private void btnManajemenKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManajemenKamarActionPerformed
         // Buat objek formreservasi baru
-        formReservasi formreservasi = new formReservasi();
+        FormReservasi formreservasi = new FormReservasi();
 
         // Tampilkan form
         formreservasi.setVisible(true);
@@ -267,33 +268,15 @@ public class Menuutama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnManajemenKamarActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // Buat objek formreservasi baru
-            formKamar Fk = new formKamar();
-            // Tampilkan form
-            Fk.setVisible(true);
-            // Atur di tengah
-            Fk.setLocationRelativeTo(null);
-            Fk.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-
-            FormTamu FT = new FormTamu();
-            // Tampilkan form
-            FT.setVisible(true);
-            // Atur di tengah
-            FT.setLocationRelativeTo(null);
-            FT.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-            // Buat objek formreservasi baru
-            FormUser FU = new FormUser();
-            // Tampilkan form
-            FU.setVisible(true);
-            // Atur di tengah
-            FU.setLocationRelativeTo(null);
-            FU.setDefaultCloseOperation(DISPOSE_ON_CLOSE);   
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -301,59 +284,18 @@ public class Menuutama extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // Buat objek formreservasi baru
-            formabout Fa = new formabout();
-            // Tampilkan form
-            Fa.setVisible(true);
-            // Atur di tengah
-            Fa.setLocationRelativeTo(null);
-            Fa.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // Buat objek formreservasi baru
-        formReservasi FR = new formReservasi();
-        // Tampilkan form
-        FR.setVisible(true);
-        // Atur di tengah
-        FR.setLocationRelativeTo(null);
-        FR.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menuutama().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManajemenKamar;
