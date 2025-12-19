@@ -41,7 +41,7 @@ public class UserDAO {
         String sql = "INSERT INTO tabel_user (username, password, nama_lengkap) VALUES (?, ?, ?)";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, u.getusername());
+            pst.setString(1, u.getUsername());
             pst.setString(2, u.getPassword());
             pst.setString(3, u.getnama_lengkap()); // Pastikan di Entity User sudah ada Getter/Setter namaLengkap
             pst.execute();
