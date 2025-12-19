@@ -21,6 +21,7 @@ public class formReservasi extends javax.swing.JFrame {
     
     ReservasiDAO dao = new ReservasiDAO();
     DefaultTableModel model;
+    java.util.List<hotel.entity.Tamu> dataTamu;
     /**
      * Creates new form formReservasi
      */
@@ -80,10 +81,16 @@ public class formReservasi extends javax.swing.JFrame {
     private void TampilTamu() {
         TamuDAO daoTamu = new TamuDAO();
         java.util.List<String> listNama = daoTamu.getDaftarNamaTamu();
+        java.util.List<String> listNik = daoTamu.getniktamu();
+        
 
         cmbTamu.removeAllItems(); // Bersihkan dulu
         for (String nama : listNama) {
             cmbTamu.addItem(nama);
+        }
+        
+        for (String nik : listNik) {
+            txtNik.setText(nik);
         }
     }
 
@@ -110,7 +117,7 @@ public class formReservasi extends javax.swing.JFrame {
         tblReservasi = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         btnSimpan = new javax.swing.JButton();
-        txtReservasi = new javax.swing.JTextField();
+        txtNik = new javax.swing.JTextField();
         btnHitung = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtTotalHarga = new javax.swing.JTextField();
@@ -120,8 +127,10 @@ public class formReservasi extends javax.swing.JFrame {
         dcCheckOut = new com.toedter.calendar.JDateChooser();
         cmbKamar = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
-        cmbTamu = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        cmbTamu = new javax.swing.JComboBox<>();
+        txtReservasi1 = new javax.swing.JTextField();
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(21, 70, 73));
@@ -166,7 +175,7 @@ public class formReservasi extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(21, 70, 73));
-        jLabel3.setText("Nama Tamu");
+        jLabel3.setText("NIK");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(21, 70, 73));
@@ -229,6 +238,11 @@ public class formReservasi extends javax.swing.JFrame {
         });
 
         cmbKamar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbKamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbKamarActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(255, 0, 0));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -240,8 +254,6 @@ public class formReservasi extends javax.swing.JFrame {
             }
         });
 
-        cmbTamu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton7.setBackground(new java.awt.Color(255, 255, 51));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,6 +261,17 @@ public class formReservasi extends javax.swing.JFrame {
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(21, 70, 73));
+        jLabel9.setText("Nama Tamu");
+
+        cmbTamu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTamu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTamuActionPerformed(evt);
             }
         });
 
@@ -272,20 +295,23 @@ public class formReservasi extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(txtReservasi, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dcCheckIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dcCheckOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbKamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbTamu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4)
+                                .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dcCheckIn, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+                                .addComponent(dcCheckOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbKamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbTamu, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9)
+                                .addComponent(txtReservasi1)
+                                .addComponent(jLabel3))
+                            .addComponent(txtNik, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(53, 53, 53))
         );
@@ -293,16 +319,21 @@ public class formReservasi extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtReservasi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtReservasi1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbTamu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNik, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbKamar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,9 +349,7 @@ public class formReservasi extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -376,9 +405,9 @@ public class formReservasi extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Harap tekan tombol HITUNG dulu!");
             return;
         }
-
+             
         Reservasi r = new Reservasi();
-        r.setIdReservasi(txtReservasi.getText());
+        r.setIdReservasi(txtNik.getText());
         r.setKodeKamar(cmbTamu.getSelectedItem().toString());
         r.setKodeKamar(cmbKamar.getSelectedItem().toString());
         r.setTglCheckIn(dcCheckIn.getDate());
@@ -439,7 +468,7 @@ public class formReservasi extends javax.swing.JFrame {
                 tampilKamar();
                 
                 // Opsional: Bersihkan form
-                txtReservasi.setText("");
+                txtNik.setText("");
                 cmbTamu.setSelectedIndex(-1);
                 cmbKamar.setSelectedIndex(-1);
                 txtTotalHarga.setText("");
@@ -452,6 +481,28 @@ public class formReservasi extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         TampilTamu();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void cmbTamuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTamuActionPerformed
+        // TODO add your handling code here:
+        int i = cmbTamu.getSelectedIndex();
+        
+        // 2. Pastikan tidak error (-1 artinya tidak ada yang dipilih)
+        if (i >= 0 && i < dataTamu.size()) {
+            
+            // 3. Ambil Objek Tamu dari List sesuai urutan
+            hotel.entity.Tamu tamuTerpilih = dataTamu.get(i);
+            
+            // 4. Pasang NIK-nya ke TextField
+            txtNik.setText(tamuTerpilih.getno_ktp());
+            
+            // BONUS: Bisa otomatis isi No Telp juga kalau mau
+            // txtTelp.setText(tamuTerpilih.getNoTelp());
+        }
+    }//GEN-LAST:event_cmbTamuActionPerformed
+
+    private void cmbKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbKamarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbKamarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,12 +557,14 @@ public class formReservasi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTable tblReservasi;
-    private javax.swing.JTextField txtReservasi;
+    private javax.swing.JTextField txtNik;
+    private javax.swing.JTextField txtReservasi1;
     private javax.swing.JTextField txtTotalHarga;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,7 +9,7 @@ public class Koneksi {
     
     public static Connection getKoneksi() {
         try {
-            String url = "jdbc:mysql://localhost:3306/db_hotel_uas"; // Nama Database
+            String url = "jdbc:mysql://localhost:3306/db_hotelin"; // Nama Database
             String user = "root"; // User XAMPP
             String pass = ""; // Password XAMPP
             

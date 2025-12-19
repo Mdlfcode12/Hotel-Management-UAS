@@ -2,6 +2,7 @@ package hotel.entity;
 public class Tamu {
     private String nama_tamu, no_ktp, no_hp, alamat;
     
+
         public String getnama_tamu() {
             return nama_tamu; 
         }
