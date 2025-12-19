@@ -13,15 +13,13 @@ public class Koneksi {
             String user = "root"; // User XAMPP
             String pass = ""; // Password XAMPP
             
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             mysqlconfig = DriverManager.getConnection(url, user, pass);
             
         } catch (SQLException e) {
             System.err.println("Koneksi Gagal: " + e.getMessage());
         }
-        
-        // --- INI BAGIAN PENTINGNYA ---
-        // Jangan ada 'throw new Unsupported...', tapi harus return connection
+
         return mysqlconfig; 
     }
 }
