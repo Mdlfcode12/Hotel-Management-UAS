@@ -67,9 +67,9 @@
               <Component id="jButton10" min="-2" pref="218" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jButton8" min="-2" pref="218" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
               <Component id="jButton9" min="-2" pref="218" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
@@ -105,7 +105,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -125,7 +125,7 @@
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButton12" alignment="1" min="-2" pref="111" max="-2" attributes="0"/>
                   <Component id="jButton13" alignment="1" min="-2" pref="111" max="-2" attributes="0"/>
@@ -135,11 +135,7 @@
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-<<<<<<< HEAD
-              <EmptySpace max="32767" attributes="0"/>
-=======
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
->>>>>>> da28ed760f3f6ea88ab9ad11a8bbdd592286433d
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -152,21 +148,7 @@
           <Color blue="49" green="46" red="15" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-<<<<<<< HEAD
-          <Image iconType="3" name="/images/checkin.png"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton11">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="49" green="46" red="15" type="rgb"/>
-=======
-          <Image iconType="3" name="/images/kamar.png"/>
->>>>>>> da28ed760f3f6ea88ab9ad11a8bbdd592286433d
+          <Image iconType="3" name="/hotel/images/kamar.png"/>
         </Property>
       </Properties>
       <Events>
@@ -213,7 +195,7 @@
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/images/Tanpa judul (1080 x 1080 piksel) (1).png"/>
+              <Image iconType="3" name="/hotel/images/Tanpa judul (1080 x 1080 piksel) (1).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel3"/>
           </Properties>
@@ -330,7 +312,7 @@
           <Color blue="49" green="46" red="15" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/cs.png"/>
+          <Image iconType="3" name="/hotel/images/cs.png"/>
         </Property>
       </Properties>
       <Events>
@@ -343,7 +325,7 @@
           <Color blue="49" green="46" red="15" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/profil.png"/>
+          <Image iconType="3" name="/hotel/images/profil.png"/>
         </Property>
       </Properties>
       <Events>
@@ -356,7 +338,7 @@
           <Color blue="49" green="46" red="15" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/profil.png"/>
+          <Image iconType="3" name="/hotel/images/profil.png"/>
         </Property>
       </Properties>
       <Events>
@@ -369,7 +351,7 @@
           <Color blue="49" green="46" red="15" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/checkin.png"/>
+          <Image iconType="3" name="/hotel/images/cs.png"/>
         </Property>
       </Properties>
       <Events>

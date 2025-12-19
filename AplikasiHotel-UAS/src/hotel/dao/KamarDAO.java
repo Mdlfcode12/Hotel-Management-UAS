@@ -5,6 +5,7 @@ import hotel.koneksi.Koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,22 @@ public class KamarDAO {
             return true;
         } catch (Exception e) {
             System.out.println("Error Tambah: " + e.getMessage());
+            return false;
+        }
+    }
+    // method Ubah
+    public boolean ubahKamar(Kamar k) {
+        String sql = "UPDATE tabel_kamar SET tipe_kamar=?, harga=?, status=? WHERE kode_kamar=?";
+        try {
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, k.getTipeKamar());
+            pst.setInt(2, k.getHarga());
+            pst.setString(3, k.getStatus());
+            pst.setString(4, k.getKodeKamar()); // Butuh ID untuk where clause
+            pst.execute();
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error Update: " + e.getMessage());
             return false;
         }
     }
@@ -83,5 +100,17 @@ public class KamarDAO {
     return harga;
 }
 
-
+public List<String> getKamarKosong() {
+    List<String> list = new ArrayList<>();
+    // Hanya ambil kamar yang statusnya 'Kosong' / 'Available'
+    String sql = "SELECT kode_kamar FROM tabel_kamar WHERE status='Tersedia'";
+    try {
+        Statement st = conn.createStatement();
+        ResultSet res = st.executeQuery(sql);
+        while(res.next()) {
+            list.add(res.getString("kode_kamar"));
+        }
+    } catch (Exception e) {}
+    return list;
+}
 }
