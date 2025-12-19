@@ -64,6 +64,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jButton8.setBackground(new java.awt.Color(21, 70, 73));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/kamar.png"))); // NOI18N
@@ -148,7 +149,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         jButton10.setBackground(new java.awt.Color(21, 70, 73));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profil.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cs.png"))); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
