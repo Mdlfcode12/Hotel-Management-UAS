@@ -4,7 +4,9 @@ import hotel.entity.Reservasi;
 import hotel.koneksi.Koneksi;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;// Untuk hitung selisih hari
 
 public class ReservasiDAO {
@@ -59,6 +61,8 @@ public class ReservasiDAO {
                 r.setTglCheckIn(res.getDate("tgl_checkin"));
                 r.setTglCheckOut(res.getDate("tgl_checkout"));
                 r.setTotalBayar(res.getInt("total_bayar"));
+                r.setStatus(res.getString("status"));
+                
                 list.add(r);
             }
         } catch (Exception e) {
