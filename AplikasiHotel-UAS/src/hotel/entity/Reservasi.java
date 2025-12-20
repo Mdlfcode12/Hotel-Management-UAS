@@ -2,7 +2,7 @@ package hotel.entity;
 import java.util.Date;
 
 public class Reservasi {
-    private String idReservasi, namaTamu, kodeKamar, status;
+    private String idReservasi, namaTamu,Nik, kodeKamar, status;
     private Date tglCheckIn, tglCheckOut;
     private int totalBayar;
 
@@ -14,6 +14,9 @@ public class Reservasi {
 
     public String getNamaTamu() { return namaTamu; }
     public void setNamaTamu(String namaTamu) { this.namaTamu = namaTamu; }
+    
+    public String getNik() { return Nik;}
+    public void setNik(String Nik) {this.Nik = Nik;}
 
     public String getKodeKamar() { return kodeKamar; }
     public void setKodeKamar(String kodeKamar) { this.kodeKamar = kodeKamar; }

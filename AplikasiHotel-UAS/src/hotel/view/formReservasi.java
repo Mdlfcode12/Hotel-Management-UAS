@@ -38,6 +38,7 @@ public class formReservasi extends javax.swing.JFrame {
         model = new DefaultTableModel();
         model.addColumn("ID Booking");
         model.addColumn("Nama Tamu");
+        model.addColumn("Nik");
         model.addColumn("Kamar");
         model.addColumn("Check In");
         model.addColumn("Check Out");
@@ -58,6 +59,7 @@ public class formReservasi extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 r.getIdReservasi(),
                 r.getNamaTamu(),
+                r.getNik(),
                 r.getKodeKamar(),
                 r.getTglCheckIn(),
                 r.getTglCheckOut(),
@@ -126,11 +128,11 @@ public class formReservasi extends javax.swing.JFrame {
         dcCheckIn = new com.toedter.calendar.JDateChooser();
         dcCheckOut = new com.toedter.calendar.JDateChooser();
         cmbKamar = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
+        btnCheckout = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         cmbTamu = new javax.swing.JComboBox<>();
-        txtReservasi1 = new javax.swing.JTextField();
+        txtReservasi = new javax.swing.JTextField();
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(21, 70, 73));
@@ -244,13 +246,13 @@ public class formReservasi extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 0, 0));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("CheckOut");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnCheckout.setBackground(new java.awt.Color(255, 0, 0));
+        btnCheckout.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCheckout.setForeground(new java.awt.Color(255, 255, 255));
+        btnCheckout.setText("CheckOut");
+        btnCheckout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnCheckoutActionPerformed(evt);
             }
         });
 
@@ -291,7 +293,7 @@ public class formReservasi extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -308,7 +310,7 @@ public class formReservasi extends javax.swing.JFrame {
                                 .addComponent(cmbKamar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cmbTamu, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9)
-                                .addComponent(txtReservasi1)
+                                .addComponent(txtReservasi)
                                 .addComponent(jLabel3))
                             .addComponent(txtNik, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -324,7 +326,7 @@ public class formReservasi extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtReservasi1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtReservasi, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -355,7 +357,7 @@ public class formReservasi extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -407,8 +409,9 @@ public class formReservasi extends javax.swing.JFrame {
         }
              
         Reservasi r = new Reservasi();
-        r.setIdReservasi(txtNik.getText());
-        r.setKodeKamar(cmbTamu.getSelectedItem().toString());
+        r.setIdReservasi(txtReservasi.getText());
+        r.setNamaTamu(cmbTamu.getSelectedItem().toString());
+        r.setNik(txtNik.getText());
         r.setKodeKamar(cmbKamar.getSelectedItem().toString());
         r.setTglCheckIn(dcCheckIn.getDate());
         r.setTglCheckOut(dcCheckOut.getDate());
@@ -424,6 +427,7 @@ public class formReservasi extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Berhasil Check-In!");
             loadTable();
             tampilKamar();
+            TampilTamu();
             txtTotalHarga.setText("");
             cmbTamu.setSelectedIndex(-1);
             cmbKamar.setSelectedIndex(-1);
@@ -434,19 +438,22 @@ public class formReservasi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
         // 1. Cek apakah ada baris di tabel yang dipilih?
         int barisDipilih = tblReservasi.getSelectedRow();
         
         if (barisDipilih == -1) {
-            JOptionPane.showMessageDialog(this, "Pilih dulu data tamu yang akan Check-Out di tabel!");
+            JOptionPane.showMessageDialog(this, "Pilih dulu data tamu yang akan Check-Out dan pastikan di tabel!");
             return;
         }
         
         // 2. Ambil ID Reservasi & Kode Kamar dari baris yang dipilih
         String idReservasi = tblReservasi.getValueAt(barisDipilih, 0).toString(); // Kolom 0: ID
-        String kodeKamar = tblReservasi.getValueAt(barisDipilih, 2).toString();   // Kolom 2: Kode Kamar
+        //String Nik = tblReservasi.getValueAt(barisDipilih ,2).toString(); // Kolom 2: Nik
+        String kodeKamar = tblReservasi.getValueAt(barisDipilih, 3).toString();   // Kolom 3: Kode Kamar
         String statusSekarang = tblReservasi.getValueAt(barisDipilih, 6).toString(); // Kolom 6: Status
+        
+        
         
         // 3. Validasi: Kalau sudah selesai, jangan di-checkout lagi
         if (statusSekarang.equalsIgnoreCase("Selesai")) {
@@ -476,28 +483,15 @@ public class formReservasi extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Gagal memproses Check-Out.");
             }
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnCheckoutActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         TampilTamu();
+        tampilKamar();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void cmbTamuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTamuActionPerformed
-        // TODO add your handling code here:
-        int i = cmbTamu.getSelectedIndex();
-        
-        // 2. Pastikan tidak error (-1 artinya tidak ada yang dipilih)
-        if (i >= 0 && i < dataTamu.size()) {
-            
-            // 3. Ambil Objek Tamu dari List sesuai urutan
-            hotel.entity.Tamu tamuTerpilih = dataTamu.get(i);
-            
-            // 4. Pasang NIK-nya ke TextField
-            txtNik.setText(tamuTerpilih.getno_ktp());
-            
-            // BONUS: Bisa otomatis isi No Telp juga kalau mau
-            // txtTelp.setText(tamuTerpilih.getNoTelp());
-        }
+
     }//GEN-LAST:event_cmbTamuActionPerformed
 
     private void cmbKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbKamarActionPerformed
@@ -540,6 +534,7 @@ public class formReservasi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnHitung;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JComboBox<String> cmbKamar;
@@ -547,7 +542,6 @@ public class formReservasi extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dcCheckIn;
     private com.toedter.calendar.JDateChooser dcCheckOut;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -564,7 +558,7 @@ public class formReservasi extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTable tblReservasi;
     private javax.swing.JTextField txtNik;
-    private javax.swing.JTextField txtReservasi1;
+    private javax.swing.JTextField txtReservasi;
     private javax.swing.JTextField txtTotalHarga;
     // End of variables declaration//GEN-END:variables
 }

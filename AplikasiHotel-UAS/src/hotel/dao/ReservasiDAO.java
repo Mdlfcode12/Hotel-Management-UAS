@@ -17,16 +17,17 @@ public class ReservasiDAO {
     // --- FITUR 1: AMBIL HARGA KAMAR (Untuk Hitung Total) ---
     // --- 1. SIMPAN (Sesuai request: Pakai Nama Tamu) ---
     public boolean simpanReservasi(Reservasi r) {
-        String sql = "INSERT INTO tabel_reservasi VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tabel_reservasi VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, r.getIdReservasi());
-            pst.setString(2, r.getNamaTamu()); // Simpan Nama
-            pst.setString(3, r.getKodeKamar());
-            pst.setDate(4, new java.sql.Date(r.getTglCheckIn().getTime()));
-            pst.setDate(5, new java.sql.Date(r.getTglCheckOut().getTime()));
-            pst.setInt(6, r.getTotalBayar());
-            pst.setString(7, "Booking");
+            pst.setString(2, r.getNik());
+            pst.setString(3, r.getNamaTamu());
+            pst.setString(4, r.getKodeKamar());
+            pst.setDate(5, new java.sql.Date(r.getTglCheckIn().getTime()));
+            pst.setDate(6, new java.sql.Date(r.getTglCheckOut().getTime()));
+            pst.setInt(7, r.getTotalBayar());
+            pst.setString(8, "Check In");
             pst.execute();
             
             // Update Status Kamar
@@ -42,7 +43,7 @@ public class ReservasiDAO {
         }
     }
 
-    // --- 2. AMBIL DATA UNTUK TABEL (BARU) ---
+    // --- 2. AMBIL DATA UNTUK TABEL ---
     public List<Reservasi> getAllReservasi() {
         List<Reservasi> list = new ArrayList<>();
         String sql = "SELECT * FROM tabel_reservasi ORDER BY id_reservasi DESC";
@@ -53,6 +54,7 @@ public class ReservasiDAO {
                 Reservasi r = new Reservasi();
                 r.setIdReservasi(res.getString("id_reservasi"));
                 r.setNamaTamu(res.getString("nama_tamu")); // Ambil Nama
+                r.setNik(res.getString("nik"));
                 r.setKodeKamar(res.getString("kode_kamar"));
                 r.setTglCheckIn(res.getDate("tgl_checkin"));
                 r.setTglCheckOut(res.getDate("tgl_checkout"));
