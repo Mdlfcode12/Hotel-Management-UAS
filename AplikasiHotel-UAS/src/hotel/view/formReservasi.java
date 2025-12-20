@@ -13,6 +13,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import hotel.dao.KamarDAO;
 import hotel.dao.TamuDAO;
+//library jasper
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import java.util.HashMap;
+import java.sql.Connection;
 /**
  *
  * @author Feliza Puspa Dewi
@@ -124,7 +132,7 @@ public class formReservasi extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtTotalHarga = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnCetak = new javax.swing.JButton();
         dcCheckIn = new com.toedter.calendar.JDateChooser();
         dcCheckOut = new com.toedter.calendar.JDateChooser();
         cmbKamar = new javax.swing.JComboBox<>();
@@ -229,13 +237,13 @@ public class formReservasi extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(21, 70, 73));
         jLabel8.setText("Total Harga");
 
-        jButton5.setBackground(new java.awt.Color(102, 255, 0));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Cetak");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnCetak.setBackground(new java.awt.Color(102, 255, 0));
+        btnCetak.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCetak.setForeground(new java.awt.Color(255, 255, 255));
+        btnCetak.setText("Cetak");
+        btnCetak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnCetakActionPerformed(evt);
             }
         });
 
@@ -295,7 +303,7 @@ public class formReservasi extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -331,32 +339,33 @@ public class formReservasi extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbTamu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNik, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbKamar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(dcCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(2, 2, 2)
                         .addComponent(dcCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
+                        .addComponent(txtTotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11))
+                    .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -367,9 +376,38 @@ public class formReservasi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
+                                        
+    try {
+        // 1. Ambil ID Reservasi yang mau dicetak
+        String id = txtReservasi.getText();
+        
+        if (id.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Silakan pilih/simpan data transaksi dulu!");
+            return;
+        }
+
+        // 2. Siapkan Parameter (Kirim ID ke JasperReport)
+        // Pastikan di iReport kamu sudah buat Parameter bernama "id_reservasi"
+        HashMap param = new HashMap();
+        param.put("id_reservasi", id); 
+        
+        // 3. Load File Laporan
+        // Pastikan path/lokasi filenya BENAR. Sesuaikan dengan struktur folder proyekmu.
+        String fileLaporan = "src/hotel/laporan/Nota.jasper"; 
+        
+        // 4. Proses Cetak
+        Connection conn = hotel.koneksi.Koneksi.getKoneksi();
+        JasperPrint print = JasperFillManager.fillReport(fileLaporan, param, conn);
+        
+        // 5. Tampilkan Preview
+        JasperViewer.viewReport(print, false); // false = biar kalau di-close, aplikasi utama gak ikutan close
+        
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Gagal Cetak: " + e.getMessage());
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
     if(cmbTamu.getSelectedItem()== null || cmbKamar.getSelectedItem() == null || dcCheckIn.getDate() == null || dcCheckOut.getDate() == null) {
@@ -449,7 +487,6 @@ public class formReservasi extends javax.swing.JFrame {
         
         // 2. Ambil ID Reservasi & Kode Kamar dari baris yang dipilih
         String idReservasi = tblReservasi.getValueAt(barisDipilih, 0).toString(); // Kolom 0: ID
-        //String Nik = tblReservasi.getValueAt(barisDipilih ,2).toString(); // Kolom 2: Nik
         String kodeKamar = tblReservasi.getValueAt(barisDipilih, 3).toString();   // Kolom 3: Kode Kamar
         String statusSekarang = tblReservasi.getValueAt(barisDipilih, 6).toString(); // Kolom 6: Status
         
@@ -534,6 +571,7 @@ public class formReservasi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCetak;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnHitung;
     private javax.swing.JButton btnSimpan;
@@ -541,7 +579,6 @@ public class formReservasi extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbTamu;
     private com.toedter.calendar.JDateChooser dcCheckIn;
     private com.toedter.calendar.JDateChooser dcCheckOut;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
