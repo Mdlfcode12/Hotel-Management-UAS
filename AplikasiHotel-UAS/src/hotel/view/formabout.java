@@ -264,17 +264,7 @@ public class formabout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-        Tamu t = new Tamu();
-        t.setno_ktp(txtNik.getText()); // NIK jadi kunci pencarian
-        t.setnama_tamu(txtNama.getText());
-        t.setno_hp(txtnohp.getText());
-        t.setalamat(txtAlamat.getText());
-
-        if(dao.ubahTamu(t)) {
-            JOptionPane.showMessageDialog(this, "Data Berhasil Diubah");
-            loadTable();
-            resetForm();
-        }
+        
     }//GEN-LAST:event_btnUbahActionPerformed
 
     /**
