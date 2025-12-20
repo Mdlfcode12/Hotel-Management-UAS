@@ -3,6 +3,9 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="id_reservasi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{id_reservasi}]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT 
     r.id_reservasi,
@@ -17,7 +20,7 @@
 FROM tabel_reservasi r
 JOIN tabel_tamu t ON r.nik = t.nik
 JOIN tabel_kamar k ON r.kode_kamar = k.kode_kamar
-WHERE r.id_reservasi = id_reservasi]]>
+WHERE r.id_reservasi = $P{id_reservasi}]]>
 	</queryString>
 	<field name="id_reservasi" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
