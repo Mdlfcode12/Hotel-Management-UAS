@@ -2,14 +2,14 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nota" pageWidth="164" pageHeight="283" columnWidth="164" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d20ef3c8-b14a-4ab3-a781-b9d4243c6c86">
 	<property name="ireport.zoom" value="2.1435888100000025"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="169"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="id_reservasi" class="java.lang.String">
 		<defaultValueExpression><![CDATA[$P{id_reservasi}]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT 
     r.id_reservasi,
-    t.nama_tamu,
+    r.nama_tamu,
     t.alamat,                
     k.tipe_kamar,
     k.harga AS harga_per_malam,
@@ -94,13 +94,6 @@ WHERE r.id_reservasi = $P{id_reservasi}]]>
 				</textElement>
 				<text><![CDATA[id_reservasi]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="81" y="15" width="65" height="16" uuid="24cd09d3-0b49-468e-b7ed-5a0bed0e32ec"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="SansSerif" size="7" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{nama_tamu}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="16" y="15" width="45" height="16" uuid="61d96ee0-44d9-4b63-be1c-d07a34d8272d"/>
 				<textElement verticalAlignment="Middle">
@@ -236,6 +229,13 @@ WHERE r.id_reservasi = $P{id_reservasi}]]>
 				<reportElement x="16" y="175" width="130" height="58" uuid="d846e11d-57d8-4cdb-822b-bcc1a103d009"/>
 				<imageExpression><![CDATA["C:\\Users\\MyBook Z Series\\Documents\\GitHub\\Hotel-Management-UAS\\AplikasiHotel-UAS\\src\\hotel\\images\\barcode (1).gif"]]></imageExpression>
 			</image>
+			<textField>
+				<reportElement x="81" y="18" width="65" height="10" uuid="b8c40fb8-2cb1-472f-a3d3-6325ae00e95a"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_tamu}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
