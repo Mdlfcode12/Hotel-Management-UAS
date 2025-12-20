@@ -52,12 +52,12 @@ public class ReservasiDAO {
             while(res.next()) {
                 Reservasi r = new Reservasi();
                 r.setIdReservasi(res.getString("id_reservasi"));
+                r.setnik(res.getInt("nik"));
                 r.setNamaTamu(res.getString("nama_tamu")); // Ambil Nama
                 r.setKodeKamar(res.getString("kode_kamar"));
                 r.setTglCheckIn(res.getDate("tgl_checkin"));
                 r.setTglCheckOut(res.getDate("tgl_checkout"));
                 r.setTotalBayar(res.getInt("total_bayar"));
-                r.setStatus(res.getString("status"));
                 list.add(r);
             }
         } catch (Exception e) {
