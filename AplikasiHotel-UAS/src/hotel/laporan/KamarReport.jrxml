@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7594a545-4f0f-4d5d-a522-c859a52a085e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM tabel_kamar ORDER BY kode_kamar ASC]]>
+	</queryString>
+	<field name="kode_kamar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipe_kamar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="268" y="23" width="258" height="31" uuid="d6d9ce0a-9395-4d36-ac5c-7d8ec705f215"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Laporan Kamar]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="146" y="0" width="126" height="20" uuid="3a845847-81d9-489d-a8d8-3902d755aabc"/>
+				<text><![CDATA[kode_kamar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="0" width="126" height="20" uuid="77f88ccd-1ac9-4e47-9177-4c5c6e6613d5"/>
+				<text><![CDATA[tipe_kamar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="0" width="128" height="20" uuid="613376a2-0b12-4f6b-8b3f-26771dacddfc"/>
+				<text><![CDATA[harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="526" y="0" width="139" height="20" uuid="53d9ef73-34b6-4bca-b5f4-16724cbe5f8b"/>
+				<text><![CDATA[status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="146" y="0" width="126" height="20" uuid="58d6a3a6-b910-49da-a786-be1df962782d"/>
+				<textFieldExpression><![CDATA[$F{kode_kamar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="0" width="126" height="20" uuid="36eacf42-d784-48c3-8ab3-e4f97aee2d75"/>
+				<textFieldExpression><![CDATA[$F{tipe_kamar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="0" width="128" height="20" uuid="845b3455-ec9f-47db-b458-cdb0d82da7db"/>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="526" y="0" width="139" height="20" uuid="00946761-5fc4-4118-ae2b-24fd7f515a34"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="232" y="0" width="135" height="37" uuid="b1163508-4957-43c3-b479-2a56e2533cea"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="147" y="0" width="85" height="37" uuid="11569474-8cc5-479c-9b87-ade6c6620076"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total Kamar :]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="168" y="11" width="100" height="20" uuid="f1b831e7-dd99-4af1-b70d-1cc3cab895d3"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="27" splitType="Stretch"/>
+	</summary>
+</jasperReport>
