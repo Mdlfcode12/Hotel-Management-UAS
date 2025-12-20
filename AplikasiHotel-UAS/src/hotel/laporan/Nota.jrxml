@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nota" pageWidth="164" pageHeight="249" columnWidth="138" leftMargin="13" rightMargin="13" topMargin="13" bottomMargin="13" uuid="d20ef3c8-b14a-4ab3-a781-b9d4243c6c86">
-	<property name="ireport.zoom" value="1.6105100000000008"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nota" pageWidth="164" pageHeight="283" columnWidth="164" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d20ef3c8-b14a-4ab3-a781-b9d4243c6c86">
+	<property name="ireport.zoom" value="2.1435888100000025"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="169"/>
 	<parameter name="id_reservasi" class="java.lang.String">
 		<defaultValueExpression><![CDATA[$P{id_reservasi}]]></defaultValueExpression>
 	</parameter>
@@ -49,159 +49,202 @@ WHERE r.id_reservasi = $P{id_reservasi}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="17" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<staticText>
-				<reportElement x="2" y="0" width="122" height="17" uuid="8cfccf9d-37c5-444f-8ba8-85a93173cc88"/>
+				<reportElement x="0" y="1" width="162" height="17" uuid="8cfccf9d-37c5-444f-8ba8-85a93173cc88"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Receipt]]></text>
+				<text><![CDATA[Hotelin Receipt]]></text>
+			</staticText>
+			<line>
+				<reportElement x="16" y="29" width="130" height="1" uuid="990a683e-1168-466f-9bb9-5180d0fc1cd1"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="16" width="162" height="10" uuid="98adc414-48c5-4304-9242-a764fe14dc0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jl. Kurang bagus Rt 007 Rw 005]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="17" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="15" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="275" splitType="Stretch">
+		<band height="233" splitType="Stretch">
 			<textField>
-				<reportElement x="80" y="12" width="42" height="20" uuid="23396e92-b47f-4ba1-b0da-8cdc9e41d50d"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="3" width="65" height="9" uuid="23396e92-b47f-4ba1-b0da-8cdc9e41d50d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id_reservasi}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="12" width="45" height="20" uuid="7d01a652-8830-4a55-8262-0d2c1481f0b3"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="3" width="45" height="9" uuid="7d01a652-8830-4a55-8262-0d2c1481f0b3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[id_reservasi]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="39" width="42" height="20" uuid="24cd09d3-0b49-468e-b7ed-5a0bed0e32ec"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="15" width="65" height="16" uuid="24cd09d3-0b49-468e-b7ed-5a0bed0e32ec"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nama_tamu}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="39" width="45" height="20" uuid="61d96ee0-44d9-4b63-be1c-d07a34d8272d"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="15" width="45" height="16" uuid="61d96ee0-44d9-4b63-be1c-d07a34d8272d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[nama_tamu]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="65" width="42" height="20" uuid="869adba8-a40d-423e-9486-658005591874"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="34" width="65" height="10" uuid="869adba8-a40d-423e-9486-658005591874"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="65" width="45" height="20" uuid="7b6c4535-d0ea-4f0c-a045-efc0b4a8a47a"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="34" width="45" height="10" uuid="7b6c4535-d0ea-4f0c-a045-efc0b4a8a47a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[alamat]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="94" width="42" height="20" uuid="9a200df4-efb7-47e1-9e82-9aeececac0f7"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="47" width="65" height="11" uuid="9a200df4-efb7-47e1-9e82-9aeececac0f7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tipe_kamar}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="94" width="45" height="20" uuid="65a6b8cc-50d2-4ce6-a338-a00acd25bae2"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="47" width="45" height="11" uuid="65a6b8cc-50d2-4ce6-a338-a00acd25bae2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[tipe_kamar]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="121" width="42" height="20" uuid="0bb37124-5333-4fe7-b004-e20a788293ae"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="61" width="65" height="20" uuid="0bb37124-5333-4fe7-b004-e20a788293ae"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{harga_per_malam}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="121" width="45" height="20" uuid="881b28a6-7661-475f-8ad1-9dd59ad748da"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="61" width="66" height="20" uuid="881b28a6-7661-475f-8ad1-9dd59ad748da"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[harga_per_malam]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="150" width="42" height="20" uuid="e7a02341-5c9d-4d06-9302-5b0349b71839"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="84" width="65" height="11" uuid="e7a02341-5c9d-4d06-9302-5b0349b71839"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tgl_checkin}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="150" width="45" height="20" uuid="926a8842-3b14-4606-8af2-ab0f81e20adc"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="83" width="45" height="12" uuid="926a8842-3b14-4606-8af2-ab0f81e20adc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[tgl_checkin]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="180" width="42" height="20" uuid="1faa5bd3-1795-4c65-a20b-da4e04acf224"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="97" width="65" height="12" uuid="1faa5bd3-1795-4c65-a20b-da4e04acf224"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tgl_checkout}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="180" width="45" height="20" uuid="c4091b8d-e96a-4fbb-a752-ad901589c2af"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="97" width="45" height="12" uuid="c4091b8d-e96a-4fbb-a752-ad901589c2af"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[tgl_checkout]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="211" width="42" height="20" uuid="ee4ce6a2-c85d-4a85-8b76-dfa350a8bc77"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="113" width="15" height="12" uuid="ee4ce6a2-c85d-4a85-8b76-dfa350a8bc77"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{lama_inap}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="211" width="45" height="20" uuid="af230e11-5497-444e-b314-0847672f2f4c"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="113" width="45" height="12" uuid="af230e11-5497-444e-b314-0847672f2f4c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[lama_inap]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="242" width="42" height="20" uuid="ab248532-96b8-441b-8fbb-1f96c0fbc704"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="81" y="138" width="65" height="12" uuid="ab248532-96b8-441b-8fbb-1f96c0fbc704"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{total_bayar}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="4" y="242" width="45" height="20" uuid="97093071-92ae-46a7-ab0b-7f5271cf985a"/>
-				<textElement>
-					<font size="5"/>
+				<reportElement x="16" y="138" width="45" height="12" uuid="97093071-92ae-46a7-ab0b-7f5271cf985a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[total_bayar]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="96" y="113" width="50" height="12" uuid="96454b58-a126-4a78-b60b-169957ee1eb9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hari]]></text>
+			</staticText>
+			<line>
+				<reportElement x="16" y="133" width="130" height="1" uuid="a2d73b6c-0533-4405-b364-b856bec2679a"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="155" width="162" height="17" uuid="4d5e6453-353a-475b-9718-035bde73cf9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Agency FB" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THANK YOU]]></text>
+			</staticText>
+			<line>
+				<reportElement x="16" y="230" width="130" height="1" uuid="882e0514-8100-4a51-bb3e-39c7a13c603f"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="16" y="175" width="130" height="58" uuid="d846e11d-57d8-4cdb-822b-bcc1a103d009"/>
+				<imageExpression><![CDATA["C:\\Users\\MyBook Z Series\\Documents\\GitHub\\Hotel-Management-UAS\\AplikasiHotel-UAS\\src\\hotel\\images\\barcode (1).gif"]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="14" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="16" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="18" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>
