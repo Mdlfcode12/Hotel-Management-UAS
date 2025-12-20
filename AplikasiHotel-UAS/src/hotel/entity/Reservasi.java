@@ -2,9 +2,9 @@ package hotel.entity;
 import java.util.Date;
 
 public class Reservasi {
-    private String idReservasi, namaTamu, kodeKamar;
+    private String idReservasi, namaTamu, Nik, kodeKamar, status;
     private Date tglCheckIn, tglCheckOut;
-    private int nik, totalBayar;
+    private int  totalBayar;
 
     public Reservasi() {}
 
@@ -12,8 +12,8 @@ public class Reservasi {
     public String getIdReservasi() { return idReservasi; }
     public void setIdReservasi(String idReservasi) { this.idReservasi = idReservasi; }
     
-    public int getnik() { return nik; }
-    public void setnik(int nik) { this.nik = nik; }
+    public String getNik() { return Nik;}
+    public void setNik(String Nik) { this.Nik = Nik; }
 
     public String getNamaTamu() { return namaTamu; }
     public void setNamaTamu(String namaTamu) { this.namaTamu = namaTamu; }
@@ -29,5 +29,8 @@ public class Reservasi {
 
     public int getTotalBayar() { return totalBayar; }
     public void setTotalBayar(int totalBayar) { this.totalBayar = totalBayar; }
+    
+    public String getStatus() {return status; }
+    public void setStatus(String status) {this.status = status; }
 
 }

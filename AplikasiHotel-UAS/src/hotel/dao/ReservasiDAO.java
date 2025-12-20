@@ -53,7 +53,6 @@ public class ReservasiDAO {
             while(res.next()) {
                 Reservasi r = new Reservasi();
                 r.setIdReservasi(res.getString("id_reservasi"));
-                r.setnik(res.getInt("nik"));
                 r.setNamaTamu(res.getString("nama_tamu")); // Ambil Nama
                 r.setNik(res.getString("nik"));
                 r.setKodeKamar(res.getString("kode_kamar"));
