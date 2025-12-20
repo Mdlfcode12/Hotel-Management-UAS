@@ -6,19 +6,13 @@
 package hotel.view;
 
 import hotel.dao.KamarDAO;
-import hotel.entity.User;
-import hotel.dao.UserDAO;
 import hotel.entity.Kamar;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //library jasper
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-import java.util.HashMap;
 import java.sql.Connection;
 /**
  *
@@ -155,8 +149,8 @@ public class frLaporanKamar extends javax.swing.JFrame {
                         .addGap(454, 454, 454)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(472, 472, 472)
-                        .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(473, 473, 473)
+                        .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -183,7 +177,7 @@ public class frLaporanKamar extends javax.swing.JFrame {
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
         try{
         // 1. Tentukan lokasi file laporan (pastikan sudah buat UserReport.jrxml / .jasper)
-        String fileLaporan = "src/hotel/laporan/UserReport.jasper"; 
+        String fileLaporan = "src/hotel/laporan/KamarReport.jasper"; 
         
         // 2. Koneksi Database
         Connection conn = hotel.koneksi.Koneksi.getKoneksi();

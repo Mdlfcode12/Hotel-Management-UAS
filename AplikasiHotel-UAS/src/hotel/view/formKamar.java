@@ -7,9 +7,7 @@ package hotel.view;
 
 import hotel.entity.Kamar;
 import hotel.dao.KamarDAO;
-import hotel.entity.User;
 import java.util.List;
-import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 /**

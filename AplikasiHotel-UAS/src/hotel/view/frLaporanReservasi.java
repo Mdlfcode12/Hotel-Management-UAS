@@ -6,20 +6,13 @@
 package hotel.view;
 
 import hotel.dao.ReservasiDAO;
-import hotel.entity.User;
-import hotel.dao.UserDAO;
 import hotel.entity.Reservasi;
-import hotel.entity.Tamu;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //library jasper
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-import java.util.HashMap;
 import java.sql.Connection;
 /**
  *
@@ -117,7 +110,7 @@ public class frLaporanReservasi extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(21, 70, 73));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(21, 70, 73));
-        jLabel3.setText("Laporan User");
+        jLabel3.setText("Laporan Reservasi");
 
         tblReservasi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -159,11 +152,11 @@ public class frLaporanReservasi extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1048, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(454, 454, 454)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(472, 472, 472)
-                        .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(434, 434, 434)
+                        .addComponent(jLabel3)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

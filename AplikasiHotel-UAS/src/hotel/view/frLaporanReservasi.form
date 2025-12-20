@@ -32,12 +32,12 @@
                       <Component id="jpanel" min="-2" pref="1048" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="454" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="472" max="-2" attributes="0"/>
                       <Component id="btnCetak" min="-2" pref="128" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="434" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="25" max="32767" attributes="0"/>
@@ -128,7 +128,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="49" green="46" red="15" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Laporan User"/>
+        <Property name="text" type="java.lang.String" value="Laporan Reservasi"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jpanel">

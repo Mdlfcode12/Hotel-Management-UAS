@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nota" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d20ef3c8-b14a-4ab3-a781-b9d4243c6c86">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nota" pageWidth="164" pageHeight="249" columnWidth="138" leftMargin="13" rightMargin="13" topMargin="13" bottomMargin="13" uuid="d20ef3c8-b14a-4ab3-a781-b9d4243c6c86">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="id_reservasi" class="java.lang.String">
@@ -49,13 +49,13 @@ WHERE r.id_reservasi = $P{id_reservasi}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="58" splitType="Stretch">
+		<band height="17" splitType="Stretch">
 			<staticText>
-				<reportElement x="198" y="16" width="153" height="42" uuid="8cfccf9d-37c5-444f-8ba8-85a93173cc88"/>
+				<reportElement x="2" y="0" width="122" height="17" uuid="8cfccf9d-37c5-444f-8ba8-85a93173cc88"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="24" isBold="true"/>
+					<font size="10" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nota]]></text>
+				<text><![CDATA[Receipt]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -68,75 +68,129 @@ WHERE r.id_reservasi = $P{id_reservasi}]]>
 	<detail>
 		<band height="275" splitType="Stretch">
 			<textField>
-				<reportElement x="249" y="11" width="202" height="20" uuid="23396e92-b47f-4ba1-b0da-8cdc9e41d50d"/>
+				<reportElement x="80" y="12" width="42" height="20" uuid="23396e92-b47f-4ba1-b0da-8cdc9e41d50d"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{id_reservasi}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="11" width="100" height="20" uuid="7d01a652-8830-4a55-8262-0d2c1481f0b3"/>
+				<reportElement x="4" y="12" width="45" height="20" uuid="7d01a652-8830-4a55-8262-0d2c1481f0b3"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[id_reservasi]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="38" width="202" height="20" uuid="24cd09d3-0b49-468e-b7ed-5a0bed0e32ec"/>
+				<reportElement x="80" y="39" width="42" height="20" uuid="24cd09d3-0b49-468e-b7ed-5a0bed0e32ec"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nama_tamu}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="38" width="100" height="20" uuid="61d96ee0-44d9-4b63-be1c-d07a34d8272d"/>
+				<reportElement x="4" y="39" width="45" height="20" uuid="61d96ee0-44d9-4b63-be1c-d07a34d8272d"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[nama_tamu]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="64" width="202" height="20" uuid="869adba8-a40d-423e-9486-658005591874"/>
+				<reportElement x="80" y="65" width="42" height="20" uuid="869adba8-a40d-423e-9486-658005591874"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="64" width="100" height="20" uuid="7b6c4535-d0ea-4f0c-a045-efc0b4a8a47a"/>
+				<reportElement x="4" y="65" width="45" height="20" uuid="7b6c4535-d0ea-4f0c-a045-efc0b4a8a47a"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[alamat]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="93" width="202" height="20" uuid="9a200df4-efb7-47e1-9e82-9aeececac0f7"/>
+				<reportElement x="80" y="94" width="42" height="20" uuid="9a200df4-efb7-47e1-9e82-9aeececac0f7"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{tipe_kamar}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="93" width="100" height="20" uuid="65a6b8cc-50d2-4ce6-a338-a00acd25bae2"/>
+				<reportElement x="4" y="94" width="45" height="20" uuid="65a6b8cc-50d2-4ce6-a338-a00acd25bae2"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[tipe_kamar]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="120" width="202" height="20" uuid="0bb37124-5333-4fe7-b004-e20a788293ae"/>
+				<reportElement x="80" y="121" width="42" height="20" uuid="0bb37124-5333-4fe7-b004-e20a788293ae"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{harga_per_malam}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="120" width="100" height="20" uuid="881b28a6-7661-475f-8ad1-9dd59ad748da"/>
+				<reportElement x="4" y="121" width="45" height="20" uuid="881b28a6-7661-475f-8ad1-9dd59ad748da"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[harga_per_malam]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="149" width="202" height="20" uuid="e7a02341-5c9d-4d06-9302-5b0349b71839"/>
+				<reportElement x="80" y="150" width="42" height="20" uuid="e7a02341-5c9d-4d06-9302-5b0349b71839"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{tgl_checkin}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="149" width="100" height="20" uuid="926a8842-3b14-4606-8af2-ab0f81e20adc"/>
+				<reportElement x="4" y="150" width="45" height="20" uuid="926a8842-3b14-4606-8af2-ab0f81e20adc"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[tgl_checkin]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="179" width="202" height="20" uuid="1faa5bd3-1795-4c65-a20b-da4e04acf224"/>
+				<reportElement x="80" y="180" width="42" height="20" uuid="1faa5bd3-1795-4c65-a20b-da4e04acf224"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{tgl_checkout}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="179" width="100" height="20" uuid="c4091b8d-e96a-4fbb-a752-ad901589c2af"/>
+				<reportElement x="4" y="180" width="45" height="20" uuid="c4091b8d-e96a-4fbb-a752-ad901589c2af"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[tgl_checkout]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="210" width="202" height="20" uuid="ee4ce6a2-c85d-4a85-8b76-dfa350a8bc77"/>
+				<reportElement x="80" y="211" width="42" height="20" uuid="ee4ce6a2-c85d-4a85-8b76-dfa350a8bc77"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{lama_inap}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="210" width="100" height="20" uuid="af230e11-5497-444e-b314-0847672f2f4c"/>
+				<reportElement x="4" y="211" width="45" height="20" uuid="af230e11-5497-444e-b314-0847672f2f4c"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[lama_inap]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="249" y="241" width="202" height="20" uuid="ab248532-96b8-441b-8fbb-1f96c0fbc704"/>
+				<reportElement x="80" y="242" width="42" height="20" uuid="ab248532-96b8-441b-8fbb-1f96c0fbc704"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{total_bayar}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="122" y="241" width="100" height="20" uuid="97093071-92ae-46a7-ab0b-7f5271cf985a"/>
+				<reportElement x="4" y="242" width="45" height="20" uuid="97093071-92ae-46a7-ab0b-7f5271cf985a"/>
+				<textElement>
+					<font size="5"/>
+				</textElement>
 				<text><![CDATA[total_bayar]]></text>
 			</staticText>
 		</band>
@@ -148,6 +202,6 @@ WHERE r.id_reservasi = $P{id_reservasi}]]>
 		<band height="16" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="13" splitType="Stretch"/>
+		<band height="18" splitType="Stretch"/>
 	</summary>
 </jasperReport>
