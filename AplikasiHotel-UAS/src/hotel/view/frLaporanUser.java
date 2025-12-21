@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hotel.view;
 
 import hotel.entity.User;
 import hotel.dao.UserDAO;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //library jasper
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-import java.util.HashMap;
 import java.sql.Connection;
 /**
  *

@@ -5,10 +5,8 @@
  */
 package hotel.view;
 
-import hotel.koneksi.Koneksi;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.awt.Desktop;
+import java.io.File;
 import javax.swing.JOptionPane;
 
 /**
@@ -43,7 +41,7 @@ public class formabout extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnUbah = new javax.swing.JButton();
+        btnManualBook = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -116,13 +114,13 @@ public class formabout extends javax.swing.JFrame {
             .addGap(0, 73, Short.MAX_VALUE)
         );
 
-        btnUbah.setBackground(new java.awt.Color(255, 102, 0));
-        btnUbah.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnUbah.setForeground(new java.awt.Color(255, 255, 255));
-        btnUbah.setText("Manual Book");
-        btnUbah.addActionListener(new java.awt.event.ActionListener() {
+        btnManualBook.setBackground(new java.awt.Color(255, 102, 0));
+        btnManualBook.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnManualBook.setForeground(new java.awt.Color(255, 255, 255));
+        btnManualBook.setText("Manual Book");
+        btnManualBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUbahActionPerformed(evt);
+                btnManualBookActionPerformed(evt);
             }
         });
 
@@ -203,7 +201,7 @@ public class formabout extends javax.swing.JFrame {
                             .addComponent(jLabel6)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(749, 749, 749)
-                        .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnManualBook, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -225,7 +223,7 @@ public class formabout extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnManualBook, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -263,9 +261,33 @@ public class formabout extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-        
-    }//GEN-LAST:event_btnUbahActionPerformed
+    private void btnManualBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManualBookActionPerformed
+        try {
+             // 1. Tentukan nama file (Sesuaikan dengan nama file kamu)
+             // Jika file ada di folder project paling luar, cukup tulis namanya.
+             File fileManual = new File("ManualBook.pdf");
+
+             // 2. Cek apakah file tersebut ada?
+             if (fileManual.exists()) {
+
+                 // 3. Cek apakah komputer mendukung fitur buka file otomatis?
+                 if (Desktop.isDesktopSupported()) {
+                     // 4. Buka file tersebut!
+                     Desktop.getDesktop().open(fileManual);
+                 } else {
+                     JOptionPane.showMessageDialog(this, "Fitur tidak didukung di komputer ini.");
+                 }
+
+             } else {
+                 JOptionPane.showMessageDialog(this, "File Manual Book tidak ditemukan!\n" 
+                         + "Pastikan file 'ManualBook.pdf' ada di folder project.");
+             }
+
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(this, "Gagal membuka manual: " + e.getMessage());
+             e.printStackTrace();
+         }
+    }//GEN-LAST:event_btnManualBookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,7 +325,7 @@ public class formabout extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUbah;
+    private javax.swing.JButton btnManualBook;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

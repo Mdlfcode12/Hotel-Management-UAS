@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hotel.view;
 
 import hotel.dao.ReservasiDAO;
@@ -16,8 +11,6 @@ import hotel.dao.TamuDAO;
 //library jasper
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import java.util.HashMap;
 import java.sql.Connection;
@@ -30,9 +23,8 @@ public class formReservasi extends javax.swing.JFrame {
     ReservasiDAO dao = new ReservasiDAO();
     DefaultTableModel model;
     java.util.List<hotel.entity.Tamu> dataTamu;
-    /**
-     * Creates new form formReservasi
-     */
+    
+    
     public formReservasi() {
         initComponents();
         setupTable(); // Siapkan header tabel
@@ -137,7 +129,7 @@ public class formReservasi extends javax.swing.JFrame {
         dcCheckOut = new com.toedter.calendar.JDateChooser();
         cmbKamar = new javax.swing.JComboBox<>();
         btnCheckout = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         cmbTamu = new javax.swing.JComboBox<>();
         txtReservasi = new javax.swing.JTextField();
@@ -264,13 +256,13 @@ public class formReservasi extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 51));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Refresh");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnRefresh.setBackground(new java.awt.Color(255, 255, 51));
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnRefreshActionPerformed(evt);
             }
         });
 
@@ -299,7 +291,7 @@ public class formReservasi extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -367,7 +359,7 @@ public class formReservasi extends javax.swing.JFrame {
                         .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -377,7 +369,6 @@ public class formReservasi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-                                        
     try {
         // 1. Ambil ID Reservasi yang mau dicetak
         String id = txtReservasi.getText();
@@ -403,10 +394,10 @@ public class formReservasi extends javax.swing.JFrame {
         // 5. Tampilkan Preview
         JasperViewer.viewReport(print, false); // false = biar kalau di-close, aplikasi utama gak ikutan close
         
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Gagal Cetak: " + e.getMessage());
-        e.printStackTrace();
-    }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gagal Cetak: " + e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
@@ -522,10 +513,10 @@ public class formReservasi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         TampilTamu();
         tampilKamar();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void cmbTamuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTamuActionPerformed
 
@@ -574,12 +565,12 @@ public class formReservasi extends javax.swing.JFrame {
     private javax.swing.JButton btnCetak;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnHitung;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JComboBox<String> cmbKamar;
     private javax.swing.JComboBox<String> cmbTamu;
     private com.toedter.calendar.JDateChooser dcCheckIn;
     private com.toedter.calendar.JDateChooser dcCheckOut;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

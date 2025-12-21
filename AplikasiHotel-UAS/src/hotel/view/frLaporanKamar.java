@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hotel.view;
 
 import hotel.dao.KamarDAO;
@@ -14,10 +9,9 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 import java.sql.Connection;
-/**
- *
- * @author MyBook Z Series
- */
+
+
+
 public class frLaporanKamar extends javax.swing.JFrame {
 
     KamarDAO dao = new KamarDAO();
@@ -183,7 +177,6 @@ public class frLaporanKamar extends javax.swing.JFrame {
         Connection conn = hotel.koneksi.Koneksi.getKoneksi();
         
         // 3. Cetak Laporan
-        // Perhatikan: Kita isi 'null' karena tidak ada parameter yang dikirim (ingin cetak semua)
         JasperPrint print = JasperFillManager.fillReport(fileLaporan, null, conn);
         
         // 4. Tampilkan
